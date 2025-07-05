@@ -30,29 +30,13 @@
       text-decoration: underline;
     }
 
-    /* Facebook sidebar */
-    .facebook-sidebar {
-      position: fixed;
-      right: 0;
-      top: 0;
-      width: 350px;
-      height: 100vh;
-      background: white;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem;
-      overflow-y: auto;
-      z-index: 1000;
-    }
-    .facebook-sidebar h3 {
-      text-align: center;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
     /* Main content */
     .main-content {
-      margin-right: 360px;
+      max-width: 1000px;
+      margin: 0 auto;
       padding-bottom: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
 
     .old-site-banner {
@@ -61,6 +45,9 @@
       text-align: center;
       padding: 0.5rem;
       font-size: 0.95rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
     }
     .old-site-banner a {
       color: #004b7f;
@@ -72,8 +59,8 @@
     }
 
     header {
-      background: url('https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-      height: 80vh;
+      background: linear-gradient(135deg, #8b5e3c 0%, #d9c8b4 100%);
+      height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -81,25 +68,16 @@
       text-align: center;
       padding: 2rem;
       position: relative;
-    }
-
-    header::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 0;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(139, 94, 60, 0.6);
+      margin-bottom: 2rem;
     }
 
     header h1 {
-      font-size: 3rem;
-      background: rgba(0,0,0,0.5);
-      padding: 1rem 2rem;
-      border-radius: 10px;
-      margin: 0;
-      position: relative;
-      z-index: 1;
-      letter-spacing: 0.05em;
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
     }
 
     nav {
@@ -110,6 +88,8 @@
       top: 0;
       z-index: 999;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      border-radius: 6px;
+      margin-bottom: 2rem;
     }
     nav a {
       color: white;
@@ -117,15 +97,15 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 1rem;
+      transition: color 0.3s ease;
     }
     nav a:hover {
+      color: #d9c8b4;
       text-decoration: underline;
     }
 
     .section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1rem;
+      margin-bottom: 3rem;
     }
 
     .section h2 {
@@ -172,21 +152,59 @@
       color: #4a4a4a;
     }
 
-    iframe {
-      border: none;
-      width: 100%;
-      height: 300px;
+    /* Slideshow Styles */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      max-height: 350px;
+      margin: auto;
       border-radius: 10px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .slideshow-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 1rem;
+      box-sizing: border-box;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      user-select: none;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease;
+    }
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
     }
 
     footer {
       background: #372f25;
       color: white;
       text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 2rem;
+      padding: 2rem 1rem 3rem;
       font-size: 0.9rem;
+      border-radius: 6px;
+      margin-top: 2rem;
     }
     footer a {
       color: white;
@@ -197,43 +215,30 @@
       text-decoration: underline;
     }
 
+    .fb-page {
+      margin-top: 1rem;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    }
+
     /* Responsive */
     @media screen and (max-width: 800px) {
-      .facebook-sidebar {
-        display: none;
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
       }
-      .main-content {
-        margin-right: 0;
+      .featured-bows {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Facebook SDK -->
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="abc123"></script>
-
-  <!-- Facebook Sidebar -->
-  <div class="facebook-sidebar">
-    <h3>Follow Us</h3>
-    <div class="fb-page"
-         data-href="https://www.facebook.com/mongolnumsum"
-         data-tabs="timeline"
-         data-width="320"
-         data-height=""
-         data-small-header="false"
-         data-adapt-container-width="true"
-         data-hide-cover="false"
-         data-show-facepile="true">
-      <blockquote cite="https://www.facebook.com/mongolnumsum" class="fb-xfbml-parse-ignore">
-        <a href="https://www.facebook.com/mongolnumsum">Mongol Numsum</a>
-      </blockquote>
-    </div>
-  </div>
-
-  <!-- Main Content -->
   <div class="main-content">
     <div class="old-site-banner">
       🔗 Looking for the old website? <a href="https://mongolianarchery.mn" target="_blank" rel="noopener">Click here</a>
@@ -246,7 +251,7 @@
     <nav>
       <a href="#about">About</a>
       <a href="#featured">Bows</a>
-      <a href="#find-us">Find Us</a>
+      <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -279,18 +284,28 @@
       </div>
     </section>
 
-    <section class="section" id="find-us">
-      <h2>How to Find Us</h2>
-      <p>Watch this short guide to help you locate our shop in Ulaanbaatar:</p>
-      <div style="margin-top:1rem;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m8!1m3!1d11916.678283061065!2d106.9119444!3d47.9236111!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693dba79a983f%3A0x123456789abcdef!2sWW5M%2BC9%20Ulaanbaatar%2C%20Mongolia!5e0!3m2!1sen!2smn!4v1718810000000!5m2!1sen!2smn"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Mongolian Archery Location Guide"
-        ></iframe>
+    <section class="section" id="gallery">
+      <h2>Gallery</h2>
+      <p>Explore our bows in action. Slide or watch the video below.</p>
+
+      <!-- Slideshow -->
+      <div class="slideshow-container">
+        <img class="slides" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80" alt="Bow image 1">
+        <img class="slides" src="https://images.unsplash.com/photo-1526403226640-5db87c31bc9e?auto=format&fit=crop&w=1200&q=80" alt="Bow image 2">
+        <img class="slides" src="https://images.unsplash.com/photo-1549921296-cb5be3750b8c?auto=format&fit=crop&w=1200&q=80" alt="Bow image 3">
+
+        <div class="slideshow-controls">
+          <span class="prev">&#10094;</span>
+          <span class="next">&#10095;</span>
+        </div>
       </div>
+
+      <!-- Optional Video Embed - uncomment if you prefer video instead of slideshow -->
+      <!--
+      <div style="margin-top:1rem; text-align:center;">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YourVideoID" title="Mongolian Archery Video" frameborder="0" allowfullscreen></iframe>
+      </div>
+      -->
     </section>
 
     <footer class="section" id="contact">
@@ -300,19 +315,66 @@
       <p>Phone: <a href="tel:+97699085393">+976 9908 5393</a></p>
       <p>Location: Ulaanbaatar, Mongolia</p>
 
-      <div style="margin-top:1rem;">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37646.49180392677!2d106.8909481!3d47.9214941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693dba79a983f%3A0xf1b31240bc3ed07a!2sMongolian%20Archery!5e0!3m2!1sen!2smn!4v1718799320000!5m2!1sen!2smn"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Mongolian Archery Location"
-        ></iframe>
+      <div class="fb-page"
+           data-href="https://www.facebook.com/mongolnumsum"
+           data-tabs="timeline"
+           data-width="320"
+           data-height="400"
+           data-small-header="false"
+           data-adapt-container-width="true"
+           data-hide-cover="false"
+           data-show-facepile="true">
+        <blockquote cite="https://www.facebook.com/mongolnumsum" class="fb-xfbml-parse-ignore">
+          <a href="https://www.facebook.com/mongolnumsum">Mongol Numsum</a>
+        </blockquote>
       </div>
 
       <p style="margin-top:1rem;">&copy; 2025 Mongolian Archery</p>
     </footer>
   </div>
+
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="abc123"></script>
+
+  <script>
+    // Simple slideshow script
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slides');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+
+    function showSlide(n) {
+      if (n >= slides.length) slideIndex = 0;
+      if (n < 0) slideIndex = slides.length -1;
+
+      slides.forEach((slide) => slide.style.display = 'none');
+      slides[slideIndex].style.display = 'block';
+    }
+
+    function nextSlide() {
+      slideIndex++;
+      showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+      slideIndex--;
+      showSlide(slideIndex);
+    }
+
+    if (slides.length) {
+      showSlide(slideIndex);
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+
+      // Auto slideshow every 5 seconds
+      setInterval(() => {
+        slideIndex++;
+        showSlide(slideIndex);
+      }, 5000);
+    }
+  </script>
 
 </body>
 </html>
