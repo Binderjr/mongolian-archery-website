@@ -225,9 +225,9 @@
         </div>
 
         <div class="cart-footer">
-            <div class="summary"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
-            <div class="summary"><span>Shipping</span><span id="shipping">$0.00</span></div>
-            <div class="summary" style="font-weight:700"><span>Total</span><span id="total">$0.00</span></div>
+            <div class="summary"><span>Subtotal</span><span id="subtotal">₮0.00</span></div>
+            <div class="summary"><span>Shipping</span><span id="shipping">₮0.00</span></div>
+            <div class="summary" style="font-weight:700"><span>Total</span><span id="total">₮0.00</span></div>
         </div>
     </aside>
 
@@ -273,8 +273,8 @@
                 <div>
                     <label for="shippingMethod">Shipping method</label>
                     <select id="shippingMethod" name="shippingMethod">
-                        <option value="standard">Standard — $7 (3-7 days)</option>
-                        <option value="express">Express — $20 (1-2 days)</option>
+                        <option value="standard">Standard — ₮7 (3-7 days)</option>
+                        <option value="express">Express — ₮20 (1-2 days)</option>
                     </select>
                 </div>
 
@@ -287,11 +287,11 @@
             <aside class="order-side">
                 <h3 style="margin-top:0">Order summary</h3>
                 <div id="orderItems" style="display:flex;flex-direction:column;gap:8px;margin-bottom:10px"></div>
-                <div class="summary"><span>Subtotal</span><span id="oSubtotal">$0.00</span></div>
-                <div class="summary"><span>Shipping</span><span id="oShipping">$0.00</span></div>
-                <div class="summary"><span>Tax (8%)</span><span id="oTax">$0.00</span></div>
+                <div class="summary"><span>Subtotal</span><span id="oSubtotal">₮0.00</span></div>
+                <div class="summary"><span>Shipping</span><span id="oShipping">₮0.00</span></div>
+                <div class="summary"><span>Tax (8%)</span><span id="oTax">₮0.00</span></div>
                 <hr />
-                <div class="summary" style="font-weight:800;font-size:16px"><span>Total</span><span id="oTotal">$0.00</span></div>
+                <div class="summary" style="font-weight:800;font-size:16px"><span>Total</span><span id="oTotal">₮0.00</span></div>
                 <p class="small muted" style="margin-top:8px">Orders are forwarded to suppliers automatically. This demo does not charge cards.</p>
             </aside>
         </div>
@@ -372,7 +372,7 @@
         const searchInput = document.getElementById('search');
 
         // Utilities
-        const fmt = n => '$' + n.toFixed(2);
+        const fmt = n => '₮' + n.toFixed(2);
 
         function saveCart(){
             localStorage.setItem(CART_KEY, JSON.stringify(cart));
@@ -431,20 +431,20 @@
                 const card = document.createElement('article');
                 card.className = 'card';
                 card.innerHTML = `
-                    <img loading="lazy" src="${p.img}" alt="${escapeHtml(p.name)}">
+                    <img loading="lazy" src="₮{p.img}" alt="₮{escapeHtml(p.name)}">
                     <div class="body">
                         <div class="meta">
                             <div>
-                                <div style="font-weight:700">${escapeHtml(p.name)}</div>
-                                <div class="small muted">${escapeHtml(p.desc)}</div>
+                                <div style="font-weight:700">₮{escapeHtml(p.name)}</div>
+                                <div class="small muted">₮{escapeHtml(p.desc)}</div>
                             </div>
-                            <div class="price">${fmt(p.price)}</div>
+                            <div class="price">₮{fmt(p.price)}</div>
                         </div>
                         <p class="desc muted">Sizes: S, M, L, XL • Colors vary</p>
                     </div>
                     <div class="actions">
-                        <button class="btn-outline" data-id="${p.id}" aria-label="View ${escapeHtml(p.name)}">View</button>
-                        <button class="btn" data-add="${p.id}">Add to cart</button>
+                        <button class="btn-outline" data-id="₮{p.id}" aria-label="View ₮{escapeHtml(p.name)}">View</button>
+                        <button class="btn" data-add="₮{p.id}">Add to cart</button>
                     </div>
                 `;
                 catalog.appendChild(card);
@@ -467,20 +467,20 @@
                     const el = document.createElement('div');
                     el.className = 'cart-item';
                     el.innerHTML = `
-                        <img src="${i.img}" alt="${escapeHtml(i.name)}" />
+                        <img src="₮{i.img}" alt="₮{escapeHtml(i.name)}" />
                         <div class="info">
-                            <div style="font-weight:700">${escapeHtml(i.name)}</div>
-                            <div class="small muted">${fmt(i.price)} • ${i.qty} ×</div>
+                            <div style="font-weight:700">₮{escapeHtml(i.name)}</div>
+                            <div class="small muted">₮{fmt(i.price)} • ₮{i.qty} ×</div>
                             <div style="margin-top:6px;display:flex;gap:8px;align-items:center">
                                 <div class="qty">
-                                    <button data-dec="${i.id}" aria-label="Decrease">-</button>
-                                    <div style="min-width:28px;text-align:center;font-weight:700">${i.qty}</div>
-                                    <button data-inc="${i.id}" aria-label="Increase">+</button>
+                                    <button data-dec="₮{i.id}" aria-label="Decrease">-</button>
+                                    <div style="min-width:28px;text-align:center;font-weight:700">₮{i.qty}</div>
+                                    <button data-inc="₮{i.id}" aria-label="Increase">+</button>
                                 </div>
-                                <button class="btn-outline" data-remove="${i.id}">Remove</button>
+                                <button class="btn-outline" data-remove="₮{i.id}">Remove</button>
                             </div>
                         </div>
-                        <div style="font-weight:700">${fmt(i.price * i.qty)}</div>
+                        <div style="font-weight:700">₮{fmt(i.price * i.qty)}</div>
                     `;
                     cartList.appendChild(el);
                 });
@@ -557,7 +557,7 @@
                 d.style.display = 'flex';
                 d.style.justifyContent = 'space-between';
                 d.style.alignItems = 'center';
-                d.innerHTML = `<div style="display:flex;gap:8px;align-items:center"><img src="${i.img}" alt="" style="width:44px;height:44px;border-radius:6px;object-fit:cover"/><div><div style="font-weight:700">${escapeHtml(i.name)}</div><div class="small muted">${i.qty} × ${fmt(i.price)}</div></div></div><div style="font-weight:700">${fmt(i.price * i.qty)}</div>`;
+                d.innerHTML = `<div style="display:flex;gap:8px;align-items:center"><img src="₮{i.img}" alt="" style="width:44px;height:44px;border-radius:6px;object-fit:cover"/><div><div style="font-weight:700">₮{escapeHtml(i.name)}</div><div class="small muted">₮{i.qty} × ₮{fmt(i.price)}</div></div></div><div style="font-weight:700">₮{fmt(i.price * i.qty)}</div>`;
                 orderItems.appendChild(d);
             });
             const t = computeTotals(shippingMethodSelect.value);
