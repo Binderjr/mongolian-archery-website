@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mongolian Archery — Outfit Shop</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 1.5em;
+      letter-spacing: 1px;
+    }
+    .shop-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 40px;
+    }
+    .item {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 260px;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .item:hover {
+      transform: scale(1.03);
+    }
+    .item img {
+      width: 100%;
+      border-radius: 12px;
+    }
+    .item h3 {
+      margin: 10px 0;
+    }
+    .price {
+      font-size: 1.2em;
+      color: #222;
+      margin-bottom: 10px;
+    }
+    .add-btn {
+      background: #006400;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .add-btn:hover {
+      background: #228B22;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+    .cart-section {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .cart-section h2 {
+      text-align: center;
+    }
+    select, button {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Mongolian Archery Outfit Shop
+  </header>
+
+  <section class="shop-container" id="shopItems">
+    <!-- Items will be loaded by JS -->
+  </section>
+
+  <section class="cart-section">
+    <h2>Таны сагс</h2>
+    <div id="cart"></div>
+    <label for="shippingMethod">Хүргэлтийн төрөл:</label>
+    <select id="shippingMethod">
+      <option value="standard">Энгийн — 7,000₮ (3–7 хоног)</option>
+      <option value="express">Түргэн — 20,000₮ (1–2 хоног)</option>
+    </select>
+    <button id="checkoutBtn" class="add-btn">Захиалах</button>
+    <div id="totals"></div>
+  </section>
+
+  <footer>
+    © 2025 Mongolian Archery | Арьсан хувцас, гар урлал, уламжлал
+  </footer>
+
+  <script>
+    const shopItems = [
+      { name: "Арьсан дээл", price: 280000, img: "https://via.placeholder.com/260x200?text=Leather+Deel" },
+      { name: "Хантааз", price: 180000, img: "https://via.placeholder.com/260x200?text=Vest" },
+      { name: "Морин гутал", price: 320000, img: "https://via.placeholder.com/260x200?text=Boots" },
+      { name: "Нум, сумаар иж бүрдэл", price: 450000, img: "https://via.placeholder.com/260x200?text=Archery+Set" },
+    ];
+
+    const cart = [];
+
+    const fmt = n => n.toLocaleString('mn-MN') + ' ₮';
+
+    const renderShop = () => {
+      const shop = document.getElementById('shopItems');
+      shop.innerHTML = '';
+      shopItems.forEach((item, idx) => {
+        shop.innerHTML += `
+          <div class="item">
+            <img src="${item.img}" alt="${item.name}">
+            <h3>${item.name}</h3>
+            <p class="price">${fmt(item.price)}</p>
+            <button class="add-btn" onclick="addToCart(${idx})">Сагсанд нэмэх</button>
+          </div>
+        `;
+      });
+    };
+
+    const renderCart = () => {
+      const cartDiv = document.getElementById('cart');
+      cartDiv.innerHTML = cart.map((item, i) =>
+        `<p>${item.name} — ${fmt(item.price)}</p>`
+      ).join('') || "<p>Сагс хоосон байна</p>";
+      computeTotals();
+    };
+
+    const addToCart = (idx) => {
+      cart.push(shopItems[idx]);
+      renderCart();
+    };
+
+    const computeTotals = () => {
+      const subtotal = cart.reduce((a, b) => a + b.price, 0);
+      const shippingMethod = document.getElementById('shippingMethod').value;
+      let shipping = shippingMethod === 'express' ? 20000 : (subtotal >= 150000 ? 0 : 7000);
+      const tax = subtotal * 0.1;
+      const total = subtotal + shipping + tax;
+
+      document.getElementById('totals').innerHTML = `
+        <p>Нийт: ${fmt(subtotal)}</p>
+        <p>НӨАТ (10%): ${fmt(tax)}</p>
+        <p>Хүргэлт: ${fmt(shipping)}</p>
+        <h3>Төлөх дүн: ${fmt(total)}</h3>
+      `;
+    };
+
+    document.getElementById('shippingMethod').addEventListener('change', computeTotals);
+    document.getElementById('checkoutBtn').addEventListener('click', () => {
+      alert('Захиалга амжилттай илгээгдлээ! Та холбогдох имэйлээр хариу хүлээнэ үү.');
+    });
+
+    renderShop();
+    renderCart();
+  </script>
+</body>
+</html>

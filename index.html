@@ -7,7 +7,6 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap');
 
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -30,7 +29,6 @@
       text-decoration: underline;
     }
 
-    /* Main content */
     .main-content {
       max-width: 1000px;
       margin: 0 auto;
@@ -48,7 +46,6 @@
       color: white;
       text-align: center;
       padding: 2rem;
-      position: relative;
       border-radius: 10px;
       box-shadow: 0 8px 18px rgba(139, 94, 60, 0.6);
       margin-bottom: 2rem;
@@ -75,7 +72,6 @@
     nav a {
       color: white;
       margin: 0 1rem;
-      text-decoration: none;
       font-weight: bold;
       font-size: 1rem;
       transition: color 0.3s ease;
@@ -118,22 +114,20 @@
       width: 100%;
       height: 180px;
       object-fit: cover;
-      display: block;
       border-radius: 10px 10px 0 0;
     }
     .bow-card h3 {
-      margin: 0.5rem 0 0 0;
+      margin: 0.5rem 0;
       color: #6b4226;
       font-weight: 700;
     }
     .bow-card p {
-      margin: 0.3rem 1rem 0 1rem;
+      margin: 0.3rem 1rem;
       font-weight: 300;
       font-size: 0.95rem;
       color: #4a4a4a;
     }
 
-    /* Slideshow Styles */
     .slideshow-container {
       position: relative;
       max-width: 100%;
@@ -143,7 +137,6 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       overflow: hidden;
     }
-
     .slides {
       display: none;
       width: 100%;
@@ -160,16 +153,13 @@
       justify-content: space-between;
       transform: translateY(-50%);
       padding: 0 1rem;
-      box-sizing: border-box;
     }
-
     .prev, .next {
       cursor: pointer;
       background-color: rgba(0,0,0,0.5);
       color: white;
       padding: 0.5rem 1rem;
       border-radius: 30px;
-      user-select: none;
       font-weight: bold;
       font-size: 1.2rem;
       transition: background-color 0.3s ease;
@@ -178,10 +168,9 @@
       background-color: rgba(0,0,0,0.8);
     }
 
-    /* Responsive Map Container */
     .map-responsive {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
+      padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
       border-radius: 10px;
@@ -207,11 +196,7 @@
     }
     footer a {
       color: white;
-      text-decoration: none;
       font-weight: 600;
-    }
-    footer a:hover {
-      text-decoration: underline;
     }
 
     .fb-page {
@@ -224,7 +209,6 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.15);
     }
 
-    /* Responsive */
     @media screen and (max-width: 800px) {
       nav a {
         display: block;
@@ -248,18 +232,18 @@
       <a href="#featured">Bows</a>
       <a href="#gallery">Gallery</a>
       <a href="#location">Location</a>
+      <a href="dropship.html">Outfits</a>
       <a href="#contact">Contact</a>
     </nav>
 
-    <section class="section" id="about">
+    <section id="about" class="section">
       <h2>Crafted Heritage</h2>
       <p>
         Our bows are hand-crafted using ancient Mongolian techniques — blending sinew, horn, and wood into a powerful symbol of tradition.
-        Each bow is unique, tuned for performance, and rooted in history.
       </p>
     </section>
 
-    <section class="section" id="featured">
+    <section id="featured" class="section">
       <h2>Featured Bows</h2>
       <div class="featured-bows">
         <div class="bow-card">
@@ -273,84 +257,46 @@
           <p>Strong draw, quiet release. Made for the field.</p>
         </div>
         <div class="bow-card">
-          <img src="archery_boy.jpg" alt="Child's Training Bow" />
+          <img src="archery_boy.jpg" alt="Child's Bow" />
           <h3>Child's Bow</h3>
           <p>Scaled for young archers, still crafted by hand.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" id="gallery">
+    <section id="gallery" class="section">
       <h2>Gallery</h2>
-      <p>Explore our bows in action. Slide or watch the video below.</p>
-
-      <!-- Slideshow -->
       <div class="slideshow-container">
-      <img class="slides" src="bagts_sum.jpg" alt="Your Bow Photo">
-      <img class="slides" src="bows on a black sheet.jpg" alt="Bow image 1">
-      <img class="slides" src="carved_bow.jpg" alt="Bow image 2">
-      <img class="slides" src="siilber_combo.jpg" alt="Bow image 3">
-      <img class="slides" src="ij_burdel_top.jpg" alt="Bow image 4">
-      <img class="slides" src="Orange_bow.jpg" alt="Bow image 5">
-      
-      <div class="slideshow-controls">
-        <span class="prev">&#10094;</span>
-        <span class="next">&#10095;</span>
+        <img class="slides" src="bagts_sum.jpg" alt="">
+        <img class="slides" src="bows on a black sheet.jpg" alt="">
+        <img class="slides" src="carved_bow.jpg" alt="">
+        <img class="slides" src="siilber_combo.jpg" alt="">
+        <img class="slides" src="ij_burdel_top.jpg" alt="">
+        <img class="slides" src="Orange_bow.jpg" alt="">
+        <div class="slideshow-controls">
+          <span class="prev">&#10094;</span>
+          <span class="next">&#10095;</span>
+        </div>
       </div>
-      </div>
-
-      <!--
-      <video controls width="100%" style="margin-top: 1rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-      <source src="bow-making.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-      </video>
-      -->
     </section>
 
-    <section class="section" id="location">
+    <section id="location" class="section">
       <h2>Our Location</h2>
       <div class="map-responsive">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.6694225329325!2d106.93084557682612!3d47.90858676707489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693ac548c7307%3A0xbe9419ee2fc7425b!2zQXJjaGVyeSBTaG9wIC8g0J3Rg9C8LCDRgdGD0LzQvdGLINGC06nRgNOp0LvQttGB06nQvSDQtNGN0LvQs9Kv0q_RgA!5e1!3m2!1sen!2sjp!4v1751708667112!5m2!1sen!2sjp"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen loading="lazy"></iframe>
       </div>
     </section>
 
-    <footer class="section" id="contact">
+    <footer id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:info@mongolianarchery.com">info@mongolianarchery.com</a></p>
       <p>Email: <a href="mailto:archerybuma@gmail.com">archerybuma@gmail.com</a></p>
       <p>Phone: <a href="tel:+97699085393">+976 9908 5393</a></p>
       <p>Location: Ulaanbaatar, Mongolia</p>
-
-      <div class="fb-page"
-           data-href="https://www.facebook.com/mongolnumsum"
-           data-tabs="timeline"
-           data-width="320"
-           data-height="400"
-           data-small-header="false"
-           data-adapt-container-width="true"
-           data-hide-cover="false"
-           data-show-facepile="true">
-        <blockquote cite="https://www.facebook.com/mongolnumsum" class="fb-xfbml-parse-ignore">
-          <a href="https://www.facebook.com/mongolnumsum">Mongol Numsum</a>
-        </blockquote>
-      </div>
-
-      <p style="margin-top:1rem;">&copy; 2025 Mongolian Archery</p>
+      <p>&copy; 2025 Mongolian Archery</p>
     </footer>
   </div>
 
-  <!-- Facebook SDK -->
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v17.0" nonce="abc123"></script>
-
   <script>
-    // Simple slideshow script
     let slideIndex = 0;
     const slides = document.querySelectorAll('.slides');
     const prevBtn = document.querySelector('.prev');
@@ -358,32 +304,19 @@
 
     function showSlide(n) {
       if (n >= slides.length) slideIndex = 0;
-      if (n < 0) slideIndex = slides.length -1;
-
-      slides.forEach((slide) => slide.style.display = 'none');
+      if (n < 0) slideIndex = slides.length - 1;
+      slides.forEach(s => s.style.display = 'none');
       slides[slideIndex].style.display = 'block';
     }
 
-    function nextSlide() {
-      slideIndex++;
-      showSlide(slideIndex);
-    }
-
-    function prevSlide() {
-      slideIndex--;
-      showSlide(slideIndex);
-    }
+    function nextSlide() { slideIndex++; showSlide(slideIndex); }
+    function prevSlide() { slideIndex--; showSlide(slideIndex); }
 
     if (slides.length) {
       showSlide(slideIndex);
       nextBtn.addEventListener('click', nextSlide);
       prevBtn.addEventListener('click', prevSlide);
-
-      // Auto slideshow every 5 seconds
-      setInterval(() => {
-        slideIndex++;
-        showSlide(slideIndex);
-      }, 5000);
+      setInterval(() => { slideIndex++; showSlide(slideIndex); }, 5000);
     }
   </script>
 
