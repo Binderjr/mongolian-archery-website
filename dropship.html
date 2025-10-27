@@ -316,7 +316,7 @@
             },
             {
                 id: 'wp-3',
-                name: 'Амар задаргаан өмд',
+                name: 'Амар задаргаатай өмд',
                 price: 8999,
                 desc: 'Fully waterproof, taped seams, great for wet snow.',
                 img: 'https://picsum.photos/seed/pant3/800/1000'
@@ -372,7 +372,7 @@
         const searchInput = document.getElementById('search');
 
         // Utilities
-        const fmt = n => n.toLocaleString('mn-MN') + ' ₮';
+        const fmt = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "’") + '₮';
 
         function saveCart(){
             localStorage.setItem(CART_KEY, JSON.stringify(cart));
