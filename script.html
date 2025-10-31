@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Synchronized Grids</title>
+<style>
+body {
+    background: #222;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    margin: 0;
+    gap: 40px; /* space between grids */
+}
+
+#grid-staggered, #grid-square {
+    display: flex;
+    gap: 2px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.column.odd {
+    margin-top: 16px; /* half cell height for stagger */
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background: #ccc;
+    border: 1px solid #444;
+    cursor: pointer;
+    transition: 0.1s;
+}
+
+.cell.on {
+    background: #00ff55;
+}
+</style>
+</head>
+<body>
+
+<div id="grid-staggered"></div>
+<div id="grid-square"></div>
+
+<script>
+const cols = 16;
+const rows = 16;
+
+const staggeredGrid = document.getElementById("grid-staggered");
+const squareGrid = document.getElementById("grid-square");
+
+const staggeredCells = [];
+const squareCells = [];
+
+// ===== Build Grids =====
+for(let c=0; c<cols; c++){
+    // Staggered Column
+    const colStaggered = document.createElement("div");
+    colStaggered.className = "column" + (c%2===1 ? " odd" : "");
+    staggeredCells[c] = [];
+    for(let r=0; r<rows; r++){
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        cell.dataset.row = r;
+        cell.dataset.col = c;
+        colStaggered.appendChild(cell);
+        staggeredCells[c][r] = cell;
+    }
+    staggeredGrid.appendChild(colStaggered);
+
+    // Square Column
+    const colSquare = document.createElement("div");
+    colSquare.className = "column";
+    squareCells[c] = [];
+    for(let r=0; r<rows; r++){
+        const cell = document.createElement("div");
+        cell.className = "cell";
+        cell.dataset.row = r;
+        cell.dataset.col = c;
+        colSquare.appendChild(cell);
+        squareCells[c][r] = cell;
+    }
+    squareGrid.appendChild(colSquare);
+}
+
+// ===== Click Handler =====
+function toggleCell(col, row){
+    staggeredCells[col][row].classList.toggle("on");
+    squareCells[col][row].classList.toggle("on");
+}
+
+// ===== Attach click events =====
+for(let c=0; c<cols; c++){
+    for(let r=0; r<rows; r++){
+        staggeredCells[c][r].onclick = () => toggleCell(c,r);
+        squareCells[c][r].onclick = () => toggleCell(c,r);
+    }
+}
+</script>
+
+</body>
+</html>
