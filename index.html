@@ -236,7 +236,17 @@
       <a href="script.html">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-
+    <script>
+      // Initialize Facebook SDK
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div id="fb-root"></div>
     <section id="about" class="section">
       <h2>Crafted Heritage</h2>
       <p>
@@ -283,9 +293,18 @@
 
     <section id="location" class="section">
       <h2>Our Location</h2>
-      <div class="map-responsive">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." allowfullscreen loading="lazy"></iframe>
-      </div>
+<div class="map-responsive">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d762.549398510175!2d106.9308456!3d47.9085832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693ac548c7307%3A0xbe9419ee2fc7425b!2sArchery%20Shop%20%2F%20%D0%9D%D1%83%D0%BC%2C%20%D1%81%D1%83%D0%BC%D0%BD%D1%8B%20%D1%82%D3%A9%D1%80%D3%A9%D0%BB%D0%B6%D1%81%D3%A9%D0%BD%20%D0%B4%D1%8D%D0%BB%D0%B3%D2%AF%D2%BB%D1%80!5e0!3m2!1sen!2smn!4v1707064922334!5m2!1sen!2smn"
+    width="600"
+    height="450"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
     </section>
 
     <footer id="contact">
