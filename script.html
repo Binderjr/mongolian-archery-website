@@ -2,16 +2,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Synchronized Grids</title>
+<title>Multiple Grid Windows</title>
 <style>
 body {
     background: #222;
     display: flex;
-    justify-content: center;
-    padding: 30px;
+    flex-wrap: wrap;
+    padding: 20px;
     margin: 0;
-    gap: 40px; /* space between grids */
+    gap: 20px;
 }
+
+.window-container {
+    background: #333;
+    border: 2px solid #555;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.window-title {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 8px;
+    font-family: Arial, sans-serif;
+}
+
 
 #grid-staggered, #grid-square {
     display: flex;
@@ -51,7 +66,6 @@ body {
 const cols = 16;
 const rows = 16;
 
-const staggeredGrid = document.getElementById("grid-staggered");
 const squareGrid = document.getElementById("grid-square");
 
 const staggeredCells = [];
