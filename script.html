@@ -1,121 +1,253 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Multiple Grid Windows</title>
-<style>
-body {
-    background: #222;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-    margin: 0;
-    gap: 20px;
-}
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>One Page — Multiple Pixel Grids (Fixed)</title>
+  <style>
+    :root{--gap:12px}
+    body{margin:0;font-family:Arial,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial;color:#111;background:#f7f7f8}
+    .hero{max-width:1200px;margin:40px auto;padding:20px;display:flex;gap:32px;align-items:flex-start}
+    .grids-wrap{flex:1;display:flex;flex-direction:column;gap:16px}
+    .pixel-container{background:#fff;border-radius:8px;padding:8px;box-shadow:0 4px 12px rgba(12,12,13,0.05);display:flex;flex-direction:column;align-items:stretch}
+    .pixel-grid{width:100%;aspect-ratio:1/1;display:grid;grid-template-columns:repeat(13,1fr);grid-template-rows:repeat(13,1fr);gap:1px;background:#e6e6e6;padding:4px;border-radius:6px;box-sizing:border-box}
+    .pixel{width:100%;height:100%;background:#fff;border-radius:2px;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.02);touch-action:none;user-select:none}
+    .pixel.active{background:#111827}
+    .controls{display:flex;gap:6px;justify-content:center;margin-top:10px}
+    .btn{padding:6px 8px;border-radius:6px;border:none;background:#111827;color:#fff;cursor:pointer;font-size:13px}
+    .hero-text{width:320px}
+    .hero-text h1{margin:0 0 12px 0;font-size:1.6rem}
+    .hero-text p{margin:0;color:#444;line-height:1.4}
+    .small{font-size:12px;color:#8b8b8b}
+    html{scroll-behavior:smooth;}
 
-.window-container {
-    background: #333;
-    border: 2px solid #555;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-.window-title {
-    color: #aaa;
-    font-size: 12px;
-    margin-bottom: 8px;
-    font-family: Arial, sans-serif;
-}
-
-
-#grid-staggered, #grid-square {
-    display: flex;
-    gap: 2px;
-}
-
-.column {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.column.odd {
-    margin-top: 16px; /* half cell height for stagger */
-}
-
-.cell {
-    width: 30px;
-    height: 30px;
-    background: #ccc;
-    border: 1px solid #444;
-    cursor: pointer;
-    transition: 0.1s;
-}
-
-.cell.on {
-    background: #683003;
-}
-</style>
+    /* Navigator styles: compact numbers reveal on hover */
+    #gridNav{position:fixed; top:20px; right:20px; background:rgba(255,255,255,0.95); padding:8px; box-shadow:0 6px 20px rgba(0,0,0,0.12); display:flex; flex-wrap:wrap; gap:6px; z-index:30; border-radius:12px; max-height:220px; transition:all 200ms ease; overflow:hidden}
+    #gridNav a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:8px;background:#f3f4f6;color:transparent;text-decoration:none;font-weight:600;transition:width 180ms ease, background 180ms ease, color 180ms ease, transform 160ms ease;overflow:hidden}
+    #gridNav a:hover{background:#111827;color:#fff;transform:translateY(-2px)}
+    /* collapsed state: keep numbers subtle using opacity */
+    #gridNav:not(:hover) a{color:transparent;}
+    #navigatorToggle{position:fixed; top:18px; right:18px; z-index:40; padding:8px 12px; background:#111827; color:#fff; border:none; border-radius:10px; cursor:pointer; box-shadow:0 3px 12px rgba(0,0,0,0.25);} 
+    .grid-header{margin:0 0 8px 0;font-size:1.05rem}
+  </style>
 </head>
 <body>
+  <button id="navigatorToggle" style="position:fixed; top:20px; right:20px; z-index:40; padding:8px 14px; background:#111827; color:#fff; border:none; border-radius:10px; cursor:pointer; box-shadow:0 3px 12px rgba(0,0,0,0.25);">Navigator</button>
+  <nav id="gridNav" style="position:fixed; top:20px; right:20px; background:#fff; padding:10px; box-shadow:0 4px 10px rgba(0,0,0,0.15); display:flex; flex-wrap:wrap; gap:6px; z-index:30; border-radius:10px; max-height:200px; transition:max-height 0.25s ease, opacity 0.25s ease; overflow:hidden;"></nav>
+  <section class="hero">
+    <div class="grids-wrap" id="gridsWrap" aria-live="polite"></div>
 
-<div id="grid-staggered"></div>
-<div id="grid-square"></div>
+    <aside class="hero-text">
+      <h1>Your Topic or Business</h1>
+      <p class="small">Interactive 13×13 pixel зурлага — each tile is independently controllable. Click & drag to paint. Use controls below each grid.</p>
+    </aside>
+  </section>
 
-<script>
-const cols = 16;
-const rows = 16;
+  <script>
+    (function(){
+      const GRID_COUNT = 30;
+      const ROWS = 13;
+      const COLS = 13;
 
-const squareGrid = document.getElementById("grid-square");
+      function makeRandomPattern(fillChance = 0.25){
+        const pat = [];
+        for(let r=0;r<ROWS;r++){
+          let row = '';
+          for(let c=0;c<COLS;c++) row += Math.random() < fillChance ? '#' : '.';
+          pat.push(row);
+        }
+        return pat;
+      }
 
-const staggeredCells = [];
-const squareCells = [];
+      function savePattern(id, gridEl){
+        const pixels = Array.from(gridEl.querySelectorAll('.pixel'));
+        const rows = [];
+        for(let r=0;r<ROWS;r++){
+          let row = '';
+          for(let c=0;c<COLS;c++){
+            const idx = r*COLS + c;
+            row += pixels[idx].classList.contains('active') ? '#' : '.';
+          }
+          rows.push(row);
+        }
+        localStorage.setItem(`grid_${id}_pattern`, JSON.stringify(rows));
+      }
 
-// ===== Build Grids =====
-for(let c=0; c<cols; c++){
-    // Staggered Column
-    const colStaggered = document.createElement("div");
-    colStaggered.className = "column" + (c%2===1 ? " odd" : "");
-    staggeredCells[c] = [];
-    for(let r=0; r<rows; r++){
-        const cell = document.createElement("div");
-        cell.className = "cell";
-        cell.dataset.row = r;
-        cell.dataset.col = c;
-        colStaggered.appendChild(cell);
-        staggeredCells[c][r] = cell;
-    }
-    staggeredGrid.appendChild(colStaggered);
+      function loadPattern(id){
+        const raw = localStorage.getItem(`grid_${id}_pattern`);
+        if(!raw) return null;
+        try { return JSON.parse(raw); } catch { return null; }
+      }
 
-    // Square Column
-    const colSquare = document.createElement("div");
-    colSquare.className = "column";
-    squareCells[c] = [];
-    for(let r=0; r<rows; r++){
-        const cell = document.createElement("div");
-        cell.className = "cell";
-        cell.dataset.row = r;
-        cell.dataset.col = c;
-        colSquare.appendChild(cell);
-        squareCells[c][r] = cell;
-    }
-    squareGrid.appendChild(colSquare);
-}
+      const gridsWrap = document.getElementById('gridsWrap');
 
-// ===== Click Handler =====
-function toggleCell(col, row){
-    staggeredCells[col][row].classList.toggle("on");
-    squareCells[col][row].classList.toggle("on");
-}
+      function createGridComponent(id, pattern){
+        const container = document.createElement('div');
+        container.id = `grid-${id}`;
+        container.className = 'pixel-container';
+        container.dataset.instanceId = id;
+        container._initialPattern = pattern.slice();
 
-// ===== Attach click events =====
-for(let c=0; c<cols; c++){
-    for(let r=0; r<rows; r++){
-        staggeredCells[c][r].onclick = () => toggleCell(c,r);
-        squareCells[c][r].onclick = () => toggleCell(c,r);
-    }
-}
-</script>
+        const header = document.createElement('h1');
+        header.className = 'grid-header';
+        header.textContent = `Зурлага ${id}`;
 
+        const grid = document.createElement('div');
+        grid.className = 'pixel-grid';
+
+        for(let r=0;r<ROWS;r++){
+          const rowStr = pattern[r] || '.'.repeat(COLS);
+          for(let c=0;c<COLS;c++){
+            const px = document.createElement('div');
+            px.className = 'pixel';
+            px.dataset.index = r*COLS + c;
+            if(rowStr[c] === '#') px.classList.add('active');
+
+            px.addEventListener('pointerdown', (e)=>{
+              e.preventDefault();
+              px.classList.toggle('active');
+              savePattern(id, grid);
+              updateBinaryValue();
+              container._painting = true;
+            });
+            px.addEventListener('pointerenter', (e)=>{
+              if(container._painting && (e.buttons & 1)){
+                px.classList.add('active');
+                savePattern(id, grid);
+              updateBinaryValue();
+              }
+            });
+            px.addEventListener('pointerup', ()=>{
+              container._painting = false;
+              savePattern(id, grid);
+              updateBinaryValue();
+            });
+
+            grid.appendChild(px);
+          }
+        }
+
+        document.addEventListener('pointerup', ()=>{ container._painting = false; });
+
+        const controls = document.createElement('div');
+        controls.className = 'controls';
+
+        function btn(text){ const b=document.createElement('button'); b.className='btn'; b.textContent=text; return b; }
+
+        const clearBtn = btn('Clear');
+        const invertBtn = btn('Invert');
+        const exportBtn = btn('Export PNG');
+        const reloadBtn = btn('Reload');
+
+        const valueBox = document.createElement('div');
+        valueBox.className = 'small';
+        valueBox.style.marginTop = '6px';
+        valueBox.textContent = '';
+
+        function updateBinaryValue(){
+          const pixels = grid.querySelectorAll('.pixel');
+          let bin = '';
+          pixels.forEach(p=>{ bin += p.classList.contains('active') ? '1' : '0'; });
+          valueBox.textContent = 'Binary: ' + bin;
+        }
+
+        updateBinaryValue();
+
+        controls.append(clearBtn, invertBtn, exportBtn, reloadBtn);
+
+        clearBtn.addEventListener('click', ()=>{
+          grid.querySelectorAll('.pixel').forEach(p=>p.classList.remove('active'));
+          savePattern(id, grid);
+              updateBinaryValue();
+        });
+
+        invertBtn.addEventListener('click', ()=>{
+          grid.querySelectorAll('.pixel').forEach(p=>p.classList.toggle('active'));
+          savePattern(id, grid);
+              updateBinaryValue();
+        });
+
+        exportBtn.addEventListener('click', ()=>{
+          exportGridToPNG(grid, id);
+        });
+
+        reloadBtn.addEventListener('click', ()=>{
+          const ip = container._initialPattern;
+          const pixels = grid.querySelectorAll('.pixel');
+          for(let r=0;r<ROWS;r++){
+            for(let c=0;c<COLS;c++){
+              const idx = r*COLS + c;
+              if(ip[r][c] === '#') pixels[idx].classList.add('active');
+              else pixels[idx].classList.remove('active');
+            }
+          }
+          savePattern(id, grid);
+              updateBinaryValue();
+        });
+
+        container.appendChild(header);
+        container.appendChild(grid);
+        container.appendChild(controls);
+        return container;
+      }
+
+      function exportGridToPNG(gridElement, id){
+        const pixels = Array.from(gridElement.querySelectorAll('.pixel'));
+        const canvas = document.createElement('canvas');
+        canvas.width = COLS;
+        canvas.height = ROWS;
+        const ctx = canvas.getContext('2d');
+        pixels.forEach((p,i)=>{
+          const x = i % COLS, y = Math.floor(i / COLS);
+          ctx.fillStyle = p.classList.contains('active') ? '#111827' : '#ffffff';
+          ctx.fillRect(x,y,1,1);
+        });
+        const scale = 20;
+        const scaled = document.createElement('canvas');
+        scaled.width = COLS * scale;
+        scaled.height = ROWS * scale;
+        const sctx = scaled.getContext('2d');
+        sctx.imageSmoothingEnabled = false;
+        sctx.drawImage(canvas,0,0,scaled.width,scaled.height);
+        const a=document.createElement('a');
+        a.download = `pixel-art-${id}.png`;
+        a.href = scaled.toDataURL('image/png');
+        a.click();
+      }
+
+      const nav = document.getElementById('gridNav');
+      const navToggle = document.getElementById('navigatorToggle');
+      let navOpen = true;
+      nav.style.maxHeight = '200px';
+      navToggle.addEventListener('click', ()=>{
+        navOpen = !navOpen;
+        if(navOpen){nav.style.maxHeight='200px'; nav.style.opacity='1';}
+        else{nav.style.maxHeight='0'; nav.style.opacity='0';}
+      });
+
+      const instances = [];
+      for(let i=0;i<GRID_COUNT;i++){
+        let pat = loadPattern(i+1);
+        if(!pat) pat = makeRandomPattern(0.25);
+        const comp = createGridComponent(i+1, pat);
+        gridsWrap.appendChild(comp);
+
+        const link = document.createElement('a');
+        link.href = `#grid-${i+1}`;
+        link.textContent = i+1;
+        link.style.padding='4px 6px';
+        link.style.border='1px solid #ccc';
+        link.style.borderRadius='4px';
+        link.style.fontSize='12px';
+        link.style.textDecoration='none';
+        link.style.color='#111';
+        nav.appendChild(link);
+
+        instances.push({el: comp, pattern: pat});
+      }
+
+      window.__pixelGrids = {instances, ROWS, COLS};
+    })();
+  </script>
 </body>
 </html>
