@@ -1,219 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mongolian Archery</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap');
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mongolian Archery</title>
+<link rel="icon" href="logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Noto+Sans+Mongolian:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Merriweather,serif;background:#f8f5f1;color:#2d2d2d;line-height:1.6}
+[lang="mn"]{font-family:'Noto Sans Mongolian',Merriweather,serif}
+a{color:#444;text-decoration:none}
+a:hover{text-decoration:underline}
+.main{max-width:1000px;margin:auto;padding:0 1rem 2rem;position:relative}
+header{background:linear-gradient(135deg,#8b5e3c,#d9c8b4);height:70vh;display:flex;align-items:center;justify-content:center;position:relative;color:#fff;text-align:center;border-radius:10px;box-shadow:0 8px 18px rgba(139,94,60,.6);margin-bottom:2rem}
+header h1{font-size:3.2rem;font-weight:700;letter-spacing:.1em;text-shadow:2px 2px 6px #000;margin:0}
+.logo{position:absolute;top:1.5rem;left:1.5rem;height:60px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.2);transition:.3s}
+.logo:hover{transform:scale(1.05)}
+.lang-toggle{position:absolute;top:1.5rem;right:1.5rem;background:#fff;color:#6b4226;padding:.4rem .8rem;border-radius:8px;font-weight:bold;cursor:pointer;font-size:.9rem}
+nav{background:#372f25;padding:1rem;position:sticky;top:0;z-index:99;border-radius:6px;margin-bottom:2rem;text-align:center}
+nav a{color:#fff;margin:0 .8rem;font-weight:bold;transition:.3s}
+nav a:hover{color:#d9c8b4}
+section{margin-bottom:3rem}
+h2{font-size:2rem;margin-bottom:1rem;border-bottom:2px solid #6b4226;padding-bottom:.3rem;color:#6b4226}
+.bows{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem}
+.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.12);text-align:center;transition:.3s;padding-bottom:1.2rem}
+.card:hover{transform:translateY(-8px)}
+.card img{width:100%;height:250px;object-fit:cover;border-radius:12px 12px 0 0}
+.card h3{margin:1rem 0 .6rem;color:#6b4226;font-weight:700;font-size:1.2rem}
+.card p{margin:0 1.2rem .8rem;font-size:1rem;color:#4a4a4a;line-height:1.5}
+.slide{position:relative;max-width:100%;max-height:500px;margin:auto;overflow:hidden;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.15)}
+.slide img{display:none;width:100%;height:500px;object-fit:cover}
+.slide img:first-child{display:block}
+.ctrl{position:absolute;top:50%;width:100%;display:flex;justify-content:space-between;transform:translateY(-50%);padding:0 1.2rem}
+.ctrl span{cursor:pointer;background:rgba(0,0,0,.6);color:#fff;padding:.6rem 1.2rem;border-radius:50px;font-weight:bold;font-size:1.1rem;transition:.3s}
+.ctrl span:hover{background:rgba(0,0,0,.9)}
+.map{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;box-shadow:0 4px 10px rgba(0,0,0,.1)}
+.map iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+footer{background:#91551d;color:#fff;text-align:center;padding:2.5rem 1rem 3.5rem;border-radius:6px}
+footer a{color:#fff;font-weight:600}
+.flogo{margin:1.2rem auto;text-align:center}
+.flogo img{height:55px;filter:brightness(0) invert(1)}
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+/* Bundle Builder */
+.bundle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin:1.5rem 0}
+.bundle-item{background:#fff;border-radius:10px;padding:1rem;box-shadow:0 3px 10px rgba(0,0,0,.1);text-align:center}
+.bundle-item img{width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:.5rem}
+.bundle-item label{font-size:.95rem;display:block;cursor:pointer}
+.bundle-item input{margin-right:.5rem}
+.bundle-summary{background:#f0e6d2;padding:1.5rem;border-radius:12px;margin-top:1.5rem;text-align:center}
+#bundle-list{list-style:none;padding:0;margin:1rem 0;min-height:60px}
+#bundle-list li{margin:.4rem 0;color:#333}
+.bundle-summary button{background:#6b4226;color:#fff;padding:.7rem 1.5rem;border:none;border-radius:10px;font-weight:bold;cursor:pointer;margin-top:.5rem}
+.bundle-summary button:hover{background:#8b5e3c}
 
-    body {
-      font-family: 'Merriweather', serif;
-      background: #f8f5f1;
-      color: #2d2d2d;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
+/* Tablet */
+@media(max-width:1024px){
+  header h1{font-size:2.6rem}
+  .logo{height:55px;top:1.2rem;left:1.2rem}
+  header{padding-left:4.5rem}
+  .bows{grid-template-columns:repeat(2,1fr)}
+  .slide{max-height:400px}
+  .slide img{height:400px}
+  .card img{height:220px}
+}
 
-    a { color: #444; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .main-content {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding-bottom: 2rem;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    header {
-      background: linear-gradient(135deg, #8b5e3c 0%, #d9c8b4 100%);
-      height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 8px 18px rgba(139, 94, 60, 0.6);
-      margin-bottom: 2rem;
-    }
-
-    header h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
-    }
-
-    nav {
-      background: #372f25;
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      border-radius: 6px;
-      margin-bottom: 2rem;
-    }
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #d9c8b4;
-      text-decoration: underline;
-    }
-
-    .section { margin-bottom: 3rem; }
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      border-bottom: 2px solid #6b4226;
-      padding-bottom: 0.3rem;
-      color: #6b4226;
-    }
-
-    .featured-bows {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .bow-card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s ease;
-      padding-bottom: 1rem;
-    }
-    .bow-card:hover { transform: translateY(-5px); }
-    .bow-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px 10px 0 0;
-    }
-    .bow-card h3 { margin: 0.5rem 0; color: #6b4226; font-weight: 700; }
-    .bow-card p { margin: 0.3rem 1rem; font-weight: 300; font-size: 0.95rem; color: #4a4a4a; }
-
-    .slideshow-container {
-      position: relative;
-      max-width: 100%;
-      max-height: 350px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-    }
-    .slides {
-      display: none;
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .slideshow-controls {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-      padding: 0 1rem;
-    }
-    .prev, .next {
-      cursor: pointer;
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 30px;
-      font-weight: bold;
-      font-size: 1.2rem;
-      transition: background-color 0.3s ease;
-    }
-    .prev:hover, .next:hover { background-color: rgba(0,0,0,0.8); }
-
-    .map-responsive {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .map-responsive iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    footer {
-      background: #91551d;
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem 3rem;
-      font-size: 0.9rem;
-      border-radius: 6px;
-      margin-top: 2rem;
-    }
-    footer a { color: white; font-weight: 600; }
-
-    @media screen and (max-width: 800px) {
-      nav a { display: block; margin: 0.5rem 0; }
-      .featured-bows { grid-template-columns: 1fr; }
-    }
-  </style>
+/* Mobile */
+@media(max-width:600px){
+  nav a{display:block;margin:.5rem 0}
+  .bows{grid-template-columns:1fr}
+  .logo{height:45px;top:1rem;left:1rem}
+  header{padding-left:4rem}
+  header h1{font-size:2.2rem}
+  .slide{max-height:300px}
+  .slide img{height:300px}
+  .card img{height:200px}
+  .bundle-grid{grid-template-columns:1fr}
+}
+</style>
 </head>
 <body>
 
-  <div class="main-content">
-    <header>
-      <h1>Mongolian Traditional Bows</h1>
-    </header>
+<div class="main">
+  <header>
+    <a href="#"><img src="logo.png" alt="Logo" class="logo"></a>
+    <h1 data-en="Mongolian Traditional Bows" data-mn="Монголын Уламжлалт Нум">Mongolian Traditional Bows</h1>
+    <button class="lang-toggle" onclick="toggleLang()">MN</button>
+  </header>
 
-    <nav>
-      <a href="#about">About</a>
-      <a href="#featured">Bows</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#location">Location</a>
-      <a href="dropship.html">Outfits</a>
-      <a href="script.html">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+  <nav>
+    <a href="#about" data-en="About" data-mn="Тухай">About</a>
+    <a href="#featured" data-en="Bows" data-mn="Нум">Bows</a>
+    <a href="#gallery" data-en="Gallery" data-mn="Зураг">Gallery</a>
+    <a href="#bundle" data-en="Build Bundle" data-mn="Багц Үүсгэх">Build Bundle</a>
+    <a href="#location" data-en="Location" data-mn="Байршил">Location</a>
+    <a href="#contact" data-en="Contact" data-mn="Холбоо барих">Contact</a>
+  </nav>
 
-    <script>
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <div id="fb-root"></div>
+  <section id="about"><h2 data-en="Crafted Heritage" data-mn="Гар урлалын өв">Crafted Heritage</h2>
+    <p data-en="Our bows are hand-crafted using ancient Mongolian techniques — blending sinew, horn, and wood into a powerful symbol of tradition." data-mn="Манай нумыг эртний монгол аргаар гар урлалаар хийдэг — яс, эвэр, модыг хослуулан хүчирхэг уламжлалын бэлгэ тэмдэг болгодог.">Our bows are hand-crafted using ancient Mongolian techniques — blending sinew, horn, and wood into a powerful symbol of tradition.</p>
+  </section>
 
-    <section id="about" class="section">
-      <h2>Crafted Heritage</h2>
-      <p>Our bows are hand-crafted using ancient Mongolian techniques — blending sinew, horn, and wood into a powerful symbol of tradition.</p>
-    </section>
+  <section id="featured" class="bows">
+    <h2 data-en="Featured Bows" data-mn="Онцлох Нум">Featured Bows</h2>
+    <div class="card">
+      <img src="the_founder.jpg" alt="Nomadic Bow">
+      <h3 data-en="Nomadic Bow" data-mn="Нүүдэлчдийн Нум">Nomadic Bow</h3>
+      <p data-en="Light, fast, and ideal for horseback archery." data-mn="Хөнгөн, хурдан, морьтой нумлахад тохиромжтой.">Light, fast, and ideal for horseback archery.</p>
+    </div>
+    <div class="card">
+      <img src="hunter.png" alt="Hunter's Bow">
+      <h3 data-en="Hunter's Bow" data-mn="Анчны Нум">Hunter's Bow</h3>
+      <p data-en="Strong draw, quiet release. Made for the field." data-mn="Хүчтэй таталт, чимээгүй суллах. Талбайд зориулагдсан.">Strong draw, quiet release. Made for the field.</p>
+    </div>
+    <div class="card">
+      <img src="archery_boy.jpg" alt="Child's Bow">
+      <h3 data-en="Child's Bow" data-mn="Хүүхдийн Нум">Child's Bow</h3>
+      <p data-en="Scaled for young archers, still crafted by hand." data-mn="Залуу нумчдад зориулсан, гар урлалын.">Scaled for young archers, still crafted by hand.</p>
+    </div>
+  </section>
 
-    <section id="featured" class="section">
-      <h2>Featured Bows</h2>
-      <div class="featured-bows">
-        <div class="bow-card">
-          <img src="the_founder.jpg" alt="Nomadic Bow" />
-          <h3>Nomadic Bow</h3>
-          <p>Light, fast, and ideal for horseback
+  <section id="gallery" class="slide">
+    <h2 data-en="Gallery" data-mn="Зураг">Gallery</h2>
+    <img src="bagts_sum.jpg" alt="">
+    <img src="bows on a black sheet.jpg" alt="">
+    <img src="carved_bow.jpg" alt="">
+    <img src="siilber_combo.jpg" alt="">
+    <img src="ij_burdel_top.jpg" alt="">
+    <img src="Orange_bow.jpg" alt="">
+    <div class="ctrl"><span class="prev" data-en="Previous" data-mn="Өмнөх">Previous</span><span class="next" data-en="Next" data-mn="Дараагийн">Next</span></div>
+  </section>
+
+  <!-- BUNDLE BUILDER (NO PRICE) -->
+  <section id="bundle" class="section">
+    <h2 data-en="Build Your Bundle" data-mn="Багц Үүсгэх">Build Your Bundle</h2>
+    <p data-en="Select items and show this list to our clerk." data-mn="Бараа сонгоод, кассчинд үзүүлнэ үү.">Select items and show this list to our clerk.</p>
+
+    <div class="bundle-grid">
+      <div class="bundle-item">
+        <img src="the_founder.jpg" alt="Nomadic Bow">
+        <label><input type="checkbox" data-name-en="Nomadic Bow" data-name-mn="Нүүдэлчдийн Нум">
+          <span data-en="Nomadic Bow" data-mn="Нүүдэлчдийн Нум">Nomadic Bow</span>
+        </label>
+      </div>
+      <div class="bundle-item">
+        <img src="hunter.png" alt="Hunter's Bow">
+        <label><input type="checkbox" data-name-en="Hunter's Bow" data-name-mn="Анчны Нум">
+          <span data-en="Hunter's Bow" data-mn="Анчны Нум">Hunter's Bow</span>
+        </label>
+      </div>
+      <div class="bundle-item">
+        <img src="archery_boy.jpg" alt="Child's Bow">
+        <label><input type="checkbox" data-name-en="Child's Bow" data-name-mn="Хүүхдийн Нум">
+          <span data-en="Child's Bow" data-mn="Хүүхдийн Нум">Child's Bow</span>
+        </label>
+      </div>
+      <!-- Add more items -->
+      <div class="bundle-item">
+        <img src="https://via.placeholder.com/300x200?text=Arrows" alt="Arrows">
+        <label><input type="checkbox" data-name-en="Carbon Arrows (6)" data-name-mn="Карбон Сум (6)">
+          <span data-en="Carbon Arrows (6)" data-mn="Карбон Сум (6)">Carbon Arrows (6)</span>
+        </label>
+      </div>
+      <div class="bundle-item">
+        <img src="https://via.placeholder.com/300x200?text=Quiver" alt="Quiver">
+        <label><input type="checkbox" data-name-en="Leather Quiver" data-name-mn="Арьсан Хоншоор">
+          <span data-en="Leather Quiver" data-mn="Арьсан Хоншоор">Leather Quiver</span>
+        </label>
+      </div>
+      <div class="bundle-item">
+        <img src="https://via.placeholder.com/300x200?text=Deel" alt="Deel">
+        <label><input type="checkbox" data-name-en="Traditional Deel" data-name-mn="Уламжлалт Дээл">
+          <span data-en="Traditional Deel" data-mn="Уламжлалт Дээл">Traditional Deel</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="bundle-summary">
+      <h3 data-en="Your Bundle" data-mn="Таны Багц">Your Bundle</h3>
+      <ul id="bundle-list"></ul>
+      <button data-en="Print / Show to Clerk" data-mn="Хэвлэх / Кассчинд Үзүүлэх" onclick="printBundle()">Print / Show to Clerk</button>
+    </div>
+  </section>
+
+  <section id="location">
+    <h2 data-en="Our Location" data-mn="Манай Байршил">Our Location</h2>
+    <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d762.549398510175!2d106.9308456!3d47.9085832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5d9693ac548c7307%3A0xbe9419ee2fc7425b!2sArchery%20Shop!5e0!3m2!1sen!2smn!4v1707064922334!5m2!1sen!2smn" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </section>
+
+  <footer id="contact">
+    <h2 data-en="Contact" data-mn="Холбоо барих">Contact</h2>
+    <p>Email: <a href="mailto:archerybuma@gmail.com">archerybuma@gmail.com</a></p>
+    <p>Phone: <a href="tel:+97699085393">+976 9908 5393</a></p>
+    <p data-en="Location: Ulaanbaatar, Mongolia" data-mn="Байршил: Улаанбаатар, Монгол">Location: Ulaanbaatar, Mongolia</p>
+    <div class="flogo"><img src="logo.png" alt="Logo"></div>
+    <p>© 2025 Mongolian Archery</p>
+  </footer>
+</div>
+
+<script>
+// Language Toggle
+let currentLang = 'en';
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'mn' : 'en';
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${currentLang}`);
+  });
+  document.querySelectorAll('[lang]').forEach(el => {
+    el.setAttribute('lang', currentLang);
+  });
+  document.querySelector('.lang-toggle').textContent = currentLang === 'en' ? 'MN' : 'EN';
+  updateBundle();
+}
+
+// Bundle Builder (NO PRICE)
+const checkboxes = document.querySelectorAll('.bundle-item input[type="checkbox"]');
+const list = document.getElementById('bundle-list');
+
+function updateBundle() {
+  list.innerHTML = '';
+  checkboxes.forEach(cb => {
+    if (cb.checked) {
+      const name = cb.getAttribute(`data-name-${currentLang}`);
+      const li = document.createElement('li');
+      li.textContent = name;
+      list.appendChild(li);
+    }
+  });
+}
+
+function printBundle() {
+  const items = Array.from(list.children).map(li => li.textContent).join('\n');
+  const title = currentLang === 'en' ? 'MONGOLIAN ARCHERY - YOUR BUNDLE' : 'МОНГОЛ НУМ - ТАНЫ БАГЦ';
+  const show = currentLang === 'en' ? 'Show this to the clerk.' : 'Кассчинд үзүүлнэ үү.';
+  const thanks = currentLang === 'en' ? 'Thank you!' : 'Баярлалаа!';
+  const printWin = window.open('', '', 'width=600,height=700');
+  printWin.document.write(`
+    <pre style="font-family:Merriweather,serif;font-size:16px;padding:20px">
+${title}
+
+${items || (currentLang === 'en' ? 'No items selected' : 'Бараа сонгоогүй')}
+
+—————————————
+
+${show}
+${thanks}
+    </pre>
+  `);
+  printWin.document.close();
+  printWin.focus();
+  printWin.print();
+  printWin.close();
+}
+
+// Init
+checkboxes.forEach(cb => cb.addEventListener('change', updateBundle));
+
+// Slideshow
+let i=0; const s=document.querySelectorAll('.slide img'),p=document.querySelector('.prev'),n=document.querySelector('.next');
+function show(k){i=(k+s.length)%s.length; s.forEach(x=>x.style.display='none'); s[i].style.display='block';}
+p.onclick=()=>show(i-1); n.onclick=()=>show(i+1);
+setInterval(()=>show(i+1),5000); show(0);
+</script>
+</body>
+</html>
