@@ -409,16 +409,14 @@
             });
         }
 
-        function computeTotals(shippingMethod='standard'){
+        function computeTotals(shippingMethod = 'standard') {
             const items = cartItemsArray();
-            const subtotal = items.reduce((s,i)=> s + i.price * i.qty, 0);
+            const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
             let shipping = 0;
-            if(Object.keys(cart).length > 0){
-                if(shippingMethod === 'express') shipping = 20000;
-                else shipping = subtotal >= 150000 ? 0 : 7000;
-                const tax = subtotal * 0.1; // 10% VAT equivalent
+            if (Object.keys(cart).length > 0) {
+                shipping = shippingMethod === 'express' ? 20000 : (subtotal >= 150000 ? 0 : 7000);
             }
-            const tax = subtotal * 0.08;
+            const tax = subtotal * 0.08; // 8% VAT equivalent
             const total = subtotal + shipping + tax;
             return { subtotal, shipping, tax, total };
         }
@@ -626,10 +624,10 @@
         renderCart();
 
         // hydrate cart from example (optional demo add)
-        if(Object.keys(cart).length === 0){
+        if (Object.keys(cart).length === 0) {
             // prefill demonstration product for easier testing (comment out if undesired)
             // addToCart(products[0].id, 1);
         }
     </script>
 </body>
-</html></button></div>
+</html>
