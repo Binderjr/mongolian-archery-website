@@ -39,16 +39,29 @@ h2{font-size:2rem;margin-bottom:1rem;border-bottom:2px solid #6b4226;padding-bot
 footer{background:#91551d;color:#fff;text-align:center;padding:2.5rem 1rem 3.5rem;border-radius:6px}
 footer a{color:#fff;font-weight:600}
 .social{display:flex;gap:12px;justify-content:center;align-items:center;margin:0.6rem 0}
-.social a{display:inline-flex;gap:8px;align-items:center;color:#fff;opacity:.95;text-decoration:none;padding:6px;border-radius:8px;transition:all .18s ease}
+.social a{display:inline-flex;gap:8px;align-items:center;color:#fff;opacity:.95;text-decoration:none;padding:8px 10px;border-radius:10px;transition:all .18s ease}
 .social a:focus-visible{outline:2px solid rgba(255,255,255,0.35);box-shadow:0 0 0 4px rgba(255,255,255,0.06)}
-.social a:hover{opacity:1;text-decoration:none}
 /* Facebook brand */
 .social a[data-platform="facebook"]{color:#fff}
 .social a[data-platform="facebook"]:hover{background:#1877F2;color:#fff}
 /* Instagram-like gradient background (applies to the link background) */
 .social a[data-platform="instagram"]{color:#fff}
 .social a[data-platform="instagram"]:hover{background:radial-gradient(circle at 30% 20%, #fdf497 0%, #fd5949 20%, #d6249f 40%, #285AEB 70%); color:#fff}
-.social svg{width:20px;height:20px;display:block;fill:currentColor}
+/* Icon sizing and interaction */
+.social svg{width:22px;height:22px;display:block;fill:currentColor;transition:transform .18s ease}
+.social a:hover svg{transform:scale(1.08)}
+/* Header social (compact, shows label on mobile) */
+.header-social{position:absolute;top:1.5rem;right:5.5rem;display:flex;gap:8px;align-items:center}
+.header-social svg{width:26px;height:26px}
+.social-label{display:inline-block;margin-left:6px;font-weight:700}
+/* Hide header labels on larger screens; show on mobile for clarity */
+.header-social .social-label{display:none}
+@media (max-width:600px){
+  .header-social .social-label{display:inline-block}
+  .header-social{right:1.2rem}
+  /* Optionally show labels in header on mobile and increase visibility */
+  .header-social a{padding:8px 10px}
+}
 .flogo{margin:1.2rem auto;text-align:center}
 .flogo img{height:55px;filter:brightness(0) invert(1)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
@@ -111,6 +124,19 @@ html.no-scroll, body.no-scroll { overflow: hidden; }
     <a href="#"><img src="pictures/logo.png" alt="Logo" class="logo"></a>
     <h1 data-en="Mongolian Traditional Bows" data-mn="Монголын Уламжлалт Нум">Mongolian Traditional Bows</h1>
     <button class="lang-toggle" onclick="toggleLang()">MN</button>
+
+    <!-- Header social (compact) -->
+    <div class="social header-social" aria-label="Follow us">
+      <a href="https://www.facebook.com/mongolnumsum" target="_blank" rel="noopener noreferrer" aria-label="Mongolian Archery on Facebook" data-track="social" data-platform="facebook" title="Follow us on Facebook">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 12.07C22 6.55 17.52 2 12 2S2 6.55 2 12.07C2 17.1 5.66 21.2 10.44 21.95v-6.99H7.9v-2.89h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.89h-2.3V21.95C18.34 21.2 22 17.1 22 12.07z"/></svg>
+        <span class="social-label">Facebook</span>
+      </a>
+
+      <a href="https://www.instagram.com/num_sum_hudaldaa/" target="_blank" rel="noopener noreferrer" aria-label="Mongolian Archery on Instagram" data-track="social" data-platform="instagram" title="Follow us on Instagram">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.3A4.7 4.7 0 1 0 16.7 13 4.7 4.7 0 0 0 12 8.3zm6.3-2.8a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1zM12 15.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5z"/></svg>
+        <span class="social-label">Instagram</span>
+      </a>
+    </div>
   </header>
 
   <nav>
@@ -222,12 +248,12 @@ html.no-scroll, body.no-scroll { overflow: hidden; }
     <div class="social" aria-label="Social links">
       <a href="https://www.facebook.com/mongolnumsum" target="_blank" rel="noopener noreferrer" aria-label="Mongolian Archery on Facebook" data-track="social" data-platform="facebook" title="Follow us on Facebook">
         <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M22 12.07C22 6.55 17.52 2 12 2S2 6.55 2 12.07C2 17.1 5.66 21.2 10.44 21.95v-6.99H7.9v-2.89h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.19 2.23.19v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.88h2.74l-.44 2.89h-2.3V21.95C18.34 21.2 22 17.1 22 12.07z"/></svg>
-        <span class="sr-only">Facebook</span>
+        <span class="social-label">Facebook</span>
       </a>
 
       <a href="https://www.instagram.com/num_sum_hudaldaa/" target="_blank" rel="noopener noreferrer" aria-label="Mongolian Archery on Instagram" data-track="social" data-platform="instagram" title="Follow us on Instagram">
         <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6.3A4.7 4.7 0 1 0 16.7 13 4.7 4.7 0 0 0 12 8.3zm6.3-2.8a1.1 1.1 0 1 0 1.1 1.1 1.1 1.1 0 0 0-1.1-1.1zM12 15.5A3.5 3.5 0 1 1 15.5 12 3.5 3.5 0 0 1 12 15.5z"/></svg>
-        <span class="sr-only">Instagram</span>
+        <span class="social-label">Instagram</span>
       </a>
     </div>
 
