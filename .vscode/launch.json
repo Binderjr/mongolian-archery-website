@@ -8,7 +8,7 @@
             "type": "msedge",
             "request": "launch",
             "name": "Open index.html",
-            "file": "c:\\Users\\Frank\\Documents\\GitHub\\mongolian-archery-website\\static\\index.html"
+            "file": "c:\\Users\\Frank\\Documents\\GitHub\\mongolian-archery-website\\index.html"
         }
     ]
 }
