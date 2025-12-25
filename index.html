@@ -1,154 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<div>
-  <a href="/lite/index.html">
-    <button type="button">Site loading slowly · Click here</button>
-  </a>
-</div>
-
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mongolian Archery</title>
 
-  <link rel="icon" href="pictures/logo.png">
-  <link rel="stylesheet" href="styles.css">
+  <!-- External files -->
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
 </head>
-
 <body>
 
-<main>
-
-  <!-- Entrance -->
-  <header id="entrance">
-    <img src="pictures/logo.png" alt="Mongolian Archery Logo" width="60">
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+      <img src="pictures/logo.png" alt="Mongolian Archery Logo" class="logo">
+      <h1>Mongolian Archery</h1>
+    </div>
   </header>
 
   <!-- Navigation -->
-  <nav id="yard-nav">
-    <a href="#building-products"></a>
-    <a href="#building-gallery"></a>
-    <a href="#building-cart"></a>
-    <a href="#building-map"></a>
+  <nav>
+    <ul>
+      <li><a href="#yard">Yard</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="lite.html">Low Bandwidth Version</a></li>
+    </ul>
   </nav>
 
-  <!-- Products Building -->
-  <section id="building-products">
-    <article class="item">
-      <img src="pictures/product1.jpg" alt="">
-      <div class="react-zone" data-item="1"></div>
-    </article>
+  <!-- Main Content -->
+  <main>
 
-    <article class="item">
-      <img src="pictures/product2.jpg" alt="">
-      <div class="react-zone" data-item="2"></div>
-    </article>
-  </section>
+    <!-- Entrance / Yard -->
+    <section id="yard">
+      <h2>Entrance</h2>
+      <p>Visual-first space for products and services.</p>
+    </section>
 
-  <!-- Gallery Building -->
-  <section id="building-gallery">
-    <figure>
-      <img src="pictures/view1.jpg" alt="">
-    </figure>
-    <figure>
-      <img src="pictures/view2.jpg" alt="">
-    </figure>
-  </section>
+    <!-- Products -->
+    <section id="products">
+      <h2>Products</h2>
 
-  <!-- Cart Building -->
-  <section id="building-cart">
-    <ul id="cart-items"></ul>
-  </section>
+      <article class="product">
+        <h3>Nomadic Bow</h3>
+        <img src="pictures/the_founder.jpg" alt="Nomadic Bow">
+      </article>
 
-  <!-- Map Building -->
-  <section id="building-map">
-    <img src="pictures/world-map.png" alt="Global Delivery">
-  </section>
+      <article class="product">
+        <h3>Hunter Bow</h3>
+        <img src="pictures/hunter.png" alt="Hunter Bow">
+      </article>
 
-</main>
+      <article class="product">
+        <h3>Child Bow</h3>
+        <img src="pictures/archery_boy.jpg" alt="Child Bow">
+      </article>
+    </section>
 
+    <!-- Services -->
+    <section id="services">
+      <h2>Services</h2>
+      <ul>
+        <li>Archery Training</li>
+        <li>Custom Bow Crafting</li>
+        <li>Equipment Repair</li>
+      </ul>
+    </section>
 
-<footer id="footer">
-  <div class="footer-container">
+    <!-- Gallery -->
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery">
+        <img src="pictures/bagts_sum.jpg" alt="">
+        <img src="pictures/carved_bow.jpg" alt="">
+        <img src="pictures/Orange_bow.jpg" alt="">
+      </div>
+    </section>
 
-    <div class="footer-logo">
-      <img src="pictures/logo.png" alt="Mongolian Archery Logo">
-    </div>
+    <!-- Location -->
+    <section id="location">
+      <h2>Location</h2>
 
-    <div class="footer-links">
-      <a href="https://play.google.com/store/apps/details?id=com.sur.harvaa&hl=en" target="_blank" rel="noopener">
-        <img src="pictures/googleplay.png" alt="Google Play">
-      </a>
+      <p>
+        Ulaanbaatar, Mongolia<br>
+        Bayanzürkh District
+      </p>
 
-      <a href="https://www.gomongolia.gov.mn/" target="_blank" rel="noopener">
-        <img src="pictures/mongolia.png" alt="Go Mongolia">
-      </a>
+      <p>
+        Latitude: 47.9088<br>
+        Longitude: 106.9335
+      </p>
 
-      <a href="https://equestrianists.com/" target="_blank" rel="noopener">
-        <img src="pictures/horse.png" alt="Equestrianists">
-      </a>
+      <p>Maps</p>
+      <ul>
+        <li>
+          <a href="https://maps.google.com/?q=47.9088,106.9335">
+            Google Maps
+          </a>
+        </li>
+        <li>Bing Maps — coming soon</li>
+        <li>Naver Maps — coming soon</li>
+      </ul>
+    </section>
 
-      <a href="https://www.thehuofficial.com/" target="_blank" rel="noopener">
-        <img src="pictures/thehu.png" alt="The HU">
-      </a>
+    <!-- External Links -->
+    <section id="links">
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://www.facebook.com/numsumshop/">Facebook</a></li>
+        <li><a href="https://www.instagram.com/num_sum_hudaldaa/">Instagram</a></li>
+        <li><a href="https://www.gomongolia.gov.mn/">Go Mongolia</a></li>
+        <li><a href="https://equestrianists.com/">Equestrianists</a></li>
+        <li><a href="https://www.thehuofficial.com/">The HU</a></li>
+      </ul>
+    </section>
 
-      <a href="https://www.instagram.com/num_sum_hudaldaa/" target="_blank" rel="noopener">
-        <img src="pictures/instagram.png" alt="Num Sum Instagram" width="32">
-      </a>
+  </main>
 
-      <a href="https://www.facebook.com/numsumshop/" target="_blank" rel="noopener">
-        <img src="pictures/facebook.png" alt="Num Sum Shop Facebook">
-      </a>
-    </div>
-
-<section id="location">
-  <h2>Location</h2>
-
-  <p>
-    Ulaanbaatar, Mongolia<br>
-    Bayanzürkh District
-  </p>
-
-  <p>
-    Latitude: 47.9088<br>
-    Longitude: 106.9335
-  </p>
-
-  <p>
-    Altitude: approximately 1350 meters above sea level
-  </p>
-
-  <p>Maps</p>
-  <ul>
-    <li>
-      <a href="https://maps.google.com/?q=47.9088,106.9335">
-        Google Maps
-      </a>
-    </li>
-    <li>
-      <a href="https://www.bing.com/maps?cp=47.9088~106.9335">
-        Bing Maps
-      </a>
-      — coming soon
-    </li>
-    <li>
-      Naver Maps — coming soon
-    </li>
-  </ul>
-</section>
-
-
-
-    <div class="footer-info">
-      <p>Mongolian Archery</p>
-      <p>Ulaanbaatar · Mongolia</p>
-      <p>© 2025</p>
-    </div>
-
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mongolian Archery</p>
+  </footer>
 
 </body>
 </html>
