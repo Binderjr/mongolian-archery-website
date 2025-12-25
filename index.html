@@ -3,62 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mongolian archery</title>
+  <title>Global Yard</link>
 
-  <link rel="icon" href="pictures/logo.png" type="image/png">
+  <link rel="icon" href="pictures/logo.png">
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="main">
+<main>
 
-  <!-- Entrance / Yard -->
-  <header class="yard">
-    <img src="pictures/logo.png" alt="Logo" class="logo">
+  <!-- Entrance -->
+  <header id="entrance">
+    <img src="pictures/logo.png" alt="Brand Logo">
   </header>
 
   <!-- Navigation -->
-  <nav class="icon-nav">
-    <a href="#products">◼</a>
-    <a href="#gallery">◉</a>
-    <a href="#cart">♥</a>
-    <a href="#map">◎</a>
+  <nav id="yard-nav">
+    <a href="#building-products"></a>
+    <a href="#building-gallery"></a>
+    <a href="#building-cart"></a>
+    <a href="#building-map"></a>
   </nav>
 
-  <!-- Products / Services Building -->
-  <section id="products" class="section">
-    <div class="card">
-      <img src="pictures/the_founder.jpg" alt="">
-      <div class="love-zone" data-item="Nomadic Bow"></div>
-    </div>
+  <!-- Products Building -->
+  <section id="building-products">
+    <article class="item">
+      <img src="pictures/product1.jpg" alt="">
+      <div class="react-zone" data-item="1"></div>
+    </article>
 
-    <div class="card">
-      <img src="pictures/hunter.png" alt="">
-      <div class="love-zone" data-item="Hunter Bow"></div>
-    </div>
+    <article class="item">
+      <img src="pictures/product2.jpg" alt="">
+      <div class="react-zone" data-item="2"></div>
+    </article>
   </section>
 
-  <!-- Rotating / Swipe Gallery -->
-  <section id="gallery" class="gallery">
-    <img src="pictures/bagts_sum.jpg">
-    <img src="pictures/carved_bow.jpg">
-    <img src="pictures/Orange_bow.jpg">
+  <!-- Gallery Building -->
+  <section id="building-gallery">
+    <figure>
+      <img src="pictures/view1.jpg" alt="">
+    </figure>
+    <figure>
+      <img src="pictures/view2.jpg" alt="">
+    </figure>
   </section>
 
-  <!-- Cart -->
-  <section id="cart" class="section">
-    <ul id="cart-list"></ul>
+  <!-- Cart Building -->
+  <section id="building-cart">
+    <ul id="cart-items"></ul>
   </section>
 
-  <!-- Global Map -->
-  <section id="map" class="map">
-    <img src="pictures/world-map.png" alt="World Map">
+  <!-- Map Building -->
+  <section id="building-map">
+    <img src="pictures/world-map.png" alt="Global Delivery">
   </section>
 
-</div>
+</main>
 
-<script src="script.js"></script>
 </body>
 </html>
