@@ -2,111 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mongolian Archery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Global Yard</title>
 
   <link rel="icon" href="pictures/logo.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Noto+Sans+Mongolian:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div id="site-loader" class="site-loader" role="status">
-  <img src="pictures/logo.png" alt="Mongolian Archery" class="loader-logo">
-</div>
-
 <div class="main">
 
-<header>
-  <a href="#"><img src="pictures/logo.png" alt="Logo" class="logo"></a>
-  <h1 data-en="Mongolian Traditional Bows" data-mn="Монголын Уламжлалт Нум">
-    Mongolian Traditional Bows
-  </h1>
-  <button class="lang-toggle" onclick="toggleLang()">MN</button>
-</header>
+  <!-- Entrance / Yard -->
+  <header class="yard">
+    <img src="pictures/logo.png" alt="Logo" class="logo">
+  </header>
 
-<nav>
-  <a href="#about" data-en="About" data-mn="Тухай">About</a>
-  <a href="#featured" data-en="Bows" data-mn="Нум">Bows</a>
-  <a href="#gallery" data-en="Gallery" data-mn="Зураг">Gallery</a>
-  <a href="#bundle" data-en="Build Bundle" data-mn="Багц Үүсгэх">Build Bundle</a>
-  <a href="#location" data-en="Location" data-mn="Байршил">Location</a>
-  <a href="#contact" data-en="Contact" data-mn="Холбоо барих">Contact</a>
-</nav>
+  <!-- Navigation -->
+  <nav class="icon-nav">
+    <a href="#products">◼</a>
+    <a href="#gallery">◉</a>
+    <a href="#cart">♥</a>
+    <a href="#map">◎</a>
+  </nav>
 
-<section id="about">
-  <h2 data-en="Crafted Heritage" data-mn="Гар урлалын өв">Crafted Heritage</h2>
-  <p data-en="Our bows are hand-crafted using ancient Mongolian techniques — blending sinew, horn, and wood into a powerful symbol of tradition."
-     data-mn="Манай нумыг эртний монгол аргаар гар урлалаар хийдэг — яс, эвэр, модыг хослуулан хүчирхэг уламжлалын бэлгэ тэмдэг болгодог.">
-  </p>
-</section>
-
-<section id="featured" class="bows">
-  <h2 data-en="Featured Bows" data-mn="Онцлох Нум">Featured Bows</h2>
-
-  <div class="card">
-    <img src="pictures/the_founder.jpg" alt="">
-    <h3 data-en="Nomadic Bow" data-mn="Нүүдэлчдийн Нум">Nomadic Bow</h3>
-    <p data-en="Light, fast, and ideal for horseback archery."
-       data-mn="Хөнгөн, хурдан, морьтой нумлахад тохиромжтой."></p>
-  </div>
-
-  <div class="card">
-    <img src="pictures/hunter.png" alt="">
-    <h3 data-en="Hunter's Bow" data-mn="Анчны Нум">Hunter's Bow</h3>
-    <p data-en="Strong draw, quiet release."
-       data-mn="Хүчтэй таталт, чимээгүй суллах."></p>
-  </div>
-
-  <div class="card">
-    <img src="pictures/archery_boy.jpg" alt="">
-    <h3 data-en="Child's Bow" data-mn="Хүүхдийн Нум">Child's Bow</h3>
-    <p data-en="Scaled for young archers."
-       data-mn="Залуу нумчдад зориулсан."></p>
-  </div>
-</section>
-
-<section id="gallery" class="slide">
-  <h2 data-en="Gallery" data-mn="Зураг">Gallery</h2>
-
-  <img src="pictures/bagts_sum.jpg">
-  <img src="pictures/bows on a black sheet.jpg">
-  <img src="pictures/carved_bow.jpg">
-  <img src="pictures/siilber_combo.jpg">
-  <img src="pictures/ij_burdel_top.jpg">
-  <img src="pictures/Orange_bow.jpg">
-
-  <div class="ctrl">
-    <span class="prev">Previous</span>
-    <span class="next">Next</span>
-  </div>
-</section>
-
-<section id="bundle">
-  <h2 data-en="Build Your Bundle" data-mn="Багц Үүсгэх">Build Your Bundle</h2>
-
-  <div class="bundle-grid">
-    <div class="bundle-item">
-      <img src="pictures/the_founder.jpg">
-      <label>
-        <input type="checkbox" data-name-en="Nomadic Bow" data-name-mn="Нүүдэлчдийн Нум">
-        <span data-en="Nomadic Bow" data-mn="Нүүдэлчдийн Нум">Nomadic Bow</span>
-      </label>
+  <!-- Products / Services Building -->
+  <section id="products" class="section">
+    <div class="card">
+      <img src="pictures/the_founder.jpg" alt="">
+      <div class="love-zone" data-item="Nomadic Bow"></div>
     </div>
-  </div>
 
-  <div class="bundle-summary">
-    <h3 data-en="Your Bundle" data-mn="Таны Багц">Your Bundle</h3>
-    <ul id="bundle-list"></ul>
-    <button onclick="printBundle()">Print</button>
-  </div>
-</section>
+    <div class="card">
+      <img src="pictures/hunter.png" alt="">
+      <div class="love-zone" data-item="Hunter Bow"></div>
+    </div>
+  </section>
 
-<footer id="contact">
-  <p>© 2025 Mongolian Archery</p>
-</footer>
+  <!-- Rotating / Swipe Gallery -->
+  <section id="gallery" class="gallery">
+    <img src="pictures/bagts_sum.jpg">
+    <img src="pictures/carved_bow.jpg">
+    <img src="pictures/Orange_bow.jpg">
+  </section>
+
+  <!-- Cart -->
+  <section id="cart" class="section">
+    <ul id="cart-list"></ul>
+  </section>
+
+  <!-- Global Map -->
+  <section id="map" class="map">
+    <img src="pictures/world-map.png" alt="World Map">
+  </section>
 
 </div>
 
