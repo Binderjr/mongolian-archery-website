@@ -48,3 +48,11 @@ document.querySelector('.next').onclick=()=>{index=(index+1)%slides.length;showS
 
 showSlide(index);
 setInterval(()=>{index=(index+1)%slides.length;showSlide(index)},5000);
+
+// Set current year
+document.getElementById("year").textContent = new Date().getFullYear();
+
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+

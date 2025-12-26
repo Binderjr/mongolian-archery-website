@@ -1,153 +1,35 @@
 <!DOCTYPE html>
-<p>
-  <a href="lite.html">If the website loads slowly, click here</a>
-</p>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mongolian Archery</title>
-
-  <!-- External files -->
-  <link rel="stylesheet" href="style.css">
-  <script defer src="js/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Mongolian Archery</title>
 </head>
 <body>
-
-  <!-- Header -->
-  <header>
-    <div class="header-inner">
-      <img src="pictures/logo.png" alt="Mongolian Archery Logo" class="site-logo">
-      <h1>Mongolian Archery</h1>
-    </div>
-  </header>
-
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#products">Products</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#location">Location</a></li>
-    </ul>
-  </nav>
-
-
-<main class="main-container">
-
-  <h2 class="section-title">Shop Entrance</h2>
-
-  <div class="feed">
-
-    <div class="card">
-      <div class="card-media"></div>
-      <div class="card-content">
-        <div class="card-title">Nomadic Bow</div>
-        <div class="card-meta">Handcrafted</div>
-        <div class="intent">Double tap to show interest</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-media"></div>
-      <div class="card-content">
-        <div class="card-title">Hunter Bow</div>
-        <div class="card-meta">Traditional design</div>
-        <div class="intent">Double tap to show interest</div>
-      </div>
-    </div>
-
-  </div>
-
-
-    <!-- Entrance / Yard -->
-    <section id="yard">
-      <h2>Entrance</h2>
-      <p>Visual-first space for products and services.</p>
-    </section>
-
-    <!-- Products -->
-    <section id="products">
-      <h2>Products</h2>
-
-      <article class="product">
-        <h3>Nomadic Bow</h3>
-        <img src="pictures/the_founder.jpg" alt="Nomadic Bow">
-      </article>
-
-      <article class="product">
-        <h3>Hunter Bow</h3>
-        <img src="pictures/hunter.png" alt="Hunter Bow">
-      </article>
-
-      <article class="product">
-        <h3>Child Bow</h3>
-        <img src="pictures/archery_boy.jpg" alt="Child Bow">
-      </article>
-    </section>
-
-    <!-- Services -->
-    <section id="services">
-      <h2>Services</h2>
+  <img src="pictures/logo.png" alt="Mongolian Archery Logo" class="logo" style="width: 100px; height: auto;">
+    <header>
+        <h1>Welcome to Mongolian Archery</h1>
+    <nav>
       <ul>
-        <li>Archery Training</li>
-        <li>Custom Bow Crafting</li>
-        <li>Equipment Repair</li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-    </section>
-
-    <!-- Gallery -->
-    <section id="gallery">
-      <h2>Gallery</h2>
-      <div class="gallery">
-        <img src="pictures/bagts_sum.jpg" alt="">
-        <img src="pictures/carved_bow.jpg" alt="">
-        <img src="pictures/Orange_bow.jpg" alt="">
-      </div>
-    </section>
-
-    <!-- Location -->
-    <section id="location">
-      <h2>Location</h2>
-
-      <p>
-        Ulaanbaatar, Mongolia<br>
-        Bayanzürkh District
-      </p>
-
-      <p>
-        Latitude: 47.9088<br>
-        Longitude: 106.9335
-      </p>
-
-      <p>Maps</p>
-      <ul>
-        <li>
-          <a href="https://maps.google.com/?q=47.9088,106.9335">
-            Google Maps
-          </a>
-        </li>
-      </ul>
-    </section>
-
-    <!-- External Links -->
-    <section id="links">
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://www.facebook.com/numsumshop/" target="_blank" rel="noopener noreferrer">Facebook (external)</a></li>
-        <li><a href="https://www.instagram.com/num_sum_hudaldaa/" target="_blank" rel="noopener noreferrer">Instagram (external)</a></li>
-        <li><a href="https://www.gomongolia.gov.mn/" target="_blank" rel="noopener noreferrer">Go Mongolia (external)</a></li>
-        <li><a href="https://equestrianists.com/" target="_blank" rel="noopener noreferrer">Equestrianists (external)</a></li>
-        <li><a href="https://www.thehuofficial.com/" target="_blank" rel="noopener noreferrer">The HU (external)</a></li>
-      </ul>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Mongolian Archery</p>
-  </footer>
+    </nav>
+    <main>
+        <section>
+            <h2>About Mongolian Archery</h2>
+            <p>Mongolian archery is a traditional sport with a long history rooted in nomadic life, hunting, and warfare. It forms one of the Three Manly Skills of Mongolia and remains practiced today through craftsmanship, training, and national festivals such as Naadam.</p>
+        </section>
+    </main>
+<footer>
+  <p>© <span id="year"></span> Mongolian Archery</p>
+</footer>
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+<script src="JS/script.js"></script>
 
 </body>
 </html>
