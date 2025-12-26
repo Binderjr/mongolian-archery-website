@@ -4,7 +4,7 @@ Simple static website showcasing traditional Mongolian bows and related assets.
 
 Structure
 - `main.py` — small FastAPI app used to serve the static site and a status endpoint.
-- `static/` — HTML, images, and client-side scripts (index, gallery, demo pages).
+- `index.html` — HTML, images, and client-side scripts (index, gallery, demo pages).
 
 Run locally
 1. Install dependencies: `pip install fastapi uvicorn`
