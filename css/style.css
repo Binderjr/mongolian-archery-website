@@ -540,7 +540,7 @@ a:focus {
   height: 215px;
   border-radius: 0 0 0 45px;
   margin: -1px;
-  padding: 25px;
+  padding: 0;
 }
 
 .food_section .box .img-box img {
