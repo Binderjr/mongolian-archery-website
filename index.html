@@ -1,1331 +1,230 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="mongolia, mongolian, archery, travel mongolia, bow, arrow, naadam, Mongolian archery, bow making, composite bow, Suriin Kharvaa, traditional archery training" />
-  <meta name="description" content="Start your journey in Mongolian archery. We provide expert training for all levels and step-by-step guidance on traditional bow making. Explore our courses." />
-  <meta name="author" content="Binderiya" />
-  <link rel="shortcut icon" href="images/favicon.png" type="">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mongolian Archery Shop</title>
 
-  <title> Mongolian archery </title>
-
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-
-  <!--owl slider stylesheet -->
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-  <!-- nice select  -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
-  <!-- font awesome style -->
-  <link href="/css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
-  <link href="/css/style.css" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="/css/responsive.css" rel="stylesheet" />
-
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 </head>
 
 <body>
+  <!-- Header / Nav -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Mongolian Archery</a>
 
-  <div class="hero_area">
-    <div class="bg-box">
-      <img src="images/hero-bg.png" alt="">
+      <nav class="nav">
+        <a href="index.html" class="nav-link is-active">Home</a>
+        <a href="shop.html" class="nav-link">Shop</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="schedule.html" class="nav-link">Schedule</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+        <span class="theme-toggle-track">
+          <span class="theme-toggle-thumb" aria-hidden="true"></span>
+        </span>
+        <span class="theme-toggle-text" id="themeToggleText">Light</span>
+      </button>
+
+      <a class="nav-cta" href="#booking">Book Training</a>
     </div>
-    <!-- header section strats -->
-    <header class="header_section">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
-            <span>
-              Mongolian Archery
-            </span>
-          </a>
+  </header>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class=""> </span>
-          </button>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="hero-kicker">Traditional Bow & Arrow</p>
+          <h1 class="hero-title">Mongolian Traditional Archery</h1>
+          <p class="hero-subtitle">
+            Handcrafted bows, arrows, and accessories—built for tradition, sport, and performance.
+          </p>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu.html">Menu</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="book.html">Schedule</a>
-              </li>
-            </ul>
-            <div class="user_option">
-              <a href="" class="user_link">
-                <i class="fa fa-user" aria-hidden="true"></i>
-              </a>
-              <a class="cart_link" href="#">
-                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                  <g>
-                    <g>
-                      <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                   c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                   C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                   c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                   C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                    </g>
-                  </g>
-                  <g>
-                    <g>
-                      <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                   c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                    </g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                  <g>
-                  </g>
-                </svg>
-              </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit">
-                  <i class="fa fa-search" aria-hidden="true"></i>
-                </button>
-              </form>
-              <a href="" class="order_online">
-                Sign Up
-              </a>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header section -->
-    <!-- slider section -->
-    <section class="slider_section ">
-      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Traditional Bow & Arrow
-                    </h1>
-                    <p>
-                      Write something.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        See More
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item ">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Archery accessories
-                    </h1>
-                    <p>
-                      Write something
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Ask Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <div class="container ">
-              <div class="row">
-                <div class="col-md-7 col-lg-6 ">
-                  <div class="detail-box">
-                    <h1>
-                      Archery training
-                    </h1>
-                    <p>
-                      Book your training session anytime.
-                    </p>
-                    <div class="btn-box">
-                      <a href="" class="btn1">
-                        Book Now
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="shop.html">Explore Shop</a>
+            <a class="btn btn-secondary" href="#story">Learn Mongolian Archery</a>
           </div>
         </div>
-        <div class="container">
-          <ol class="carousel-indicators">
-            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
-            <li data-target="#customCarousel1" data-slide-to="1"></li>
-            <li data-target="#customCarousel1" data-slide-to="2"></li>
-          </ol>
+
+        <div class="hero-media" aria-label="Hero image placeholder">
+          <div class="hero-image-placeholder">Hero Image</div>
         </div>
       </div>
-
     </section>
-    <!-- end slider section -->
-  </div>
 
-  <!-- offer section -->
+    <!-- Category Filter (UI only for now) -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Browse by Category</h2>
 
-  <section class="offer_section layout_padding-bottom">
-    <div class="offer_container">
-      <div class="container ">
-        <div class="row">
-          <div class="col-md-6  ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/o1.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Training Sessions
-                </h5>
-                <h6>
-                  <span>20%</span> Off
-                </h6>
-                <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                    <g>
-                      <g>
-                        <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                     c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                     c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                     C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                     c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                      </g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6  ">
-            <div class="box ">
-              <div class="img-box">
-                <img src="images/o2.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h5>
-                  Sport
-                </h5>
-                <h6>
-                  <span>15%</span> Off
-                </h6>
-                <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                    <g>
-                      <g>
-                        <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                     c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                     C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                     c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                     C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                      </g>
-                    </g>
-                    <g>
-                      <g>
-                        <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                     c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                      </g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                    <g>
-                    </g>
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </div>
+        <div class="category-bar" role="tablist" aria-label="Product categories">
+          <button class="chip is-active" data-category="all">All</button>
+          <button class="chip" data-category="bow">Bow</button>
+          <button class="chip" data-category="arrow">Arrow</button>
+          <button class="chip" data-category="accessories">Accessories</button>
+          <button class="chip" data-category="outfit">Outfit</button>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- end offer section -->
+    <!-- Product Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title">Our Builds</h2>
+          <a class="text-link" href="shop.html">View all products</a>
+        </div>
 
-  <!-- food section -->
+        <div id="productGrid" class="grid">
+          <!-- Temporary cards (we will make these dynamic next) -->
+          <article class="card" data-category="arrow">
+            <div class="card-media">Image</div>
+            <h3 class="card-title">Sport Arrow</h3>
+            <p class="card-meta">Durable arrows for training and competition.</p>
+            <div class="card-row">
+              <span class="price">₮ —</span>
+              <a class="btn btn-small" href="shop.html">Details</a>
+            </div>
+          </article>
 
-  <section class="food_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Our Builds
-        </h2>
-      </div>
+          <article class="card" data-category="bow">
+            <div class="card-media">Image</div>
+            <h3 class="card-title">Sport Bow (Fiberglass)</h3>
+            <p class="card-meta">Reliable fiberglass bow for sport shooting.</p>
+            <div class="card-row">
+              <span class="price">₮ —</span>
+              <a class="btn btn-small" href="shop.html">Details</a>
+            </div>
+          </article>
 
-      <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".Bow">Bow</li>
-        <li data-filter=".Arrow">Arrow</li>
-        <li data-filter=".Accessories">Accessories</li>
-        <li data-filter=".Outfit">Outfit</li>
-      </ul>
+          <article class="card" data-category="arrow">
+            <div class="card-media">Image</div>
+            <h3 class="card-title">Fire Arrow</h3>
+            <p class="card-meta">Demonstration arrow designed for fire use.</p>
+            <div class="card-row">
+              <span class="price">₮ —</span>
+              <a class="btn btn-small" href="shop.html">Details</a>
+            </div>
+          </article>
 
-      <div class="filters-content">
-        <div class="row grid">
-          <div class="col-sm-6 col-lg-4 all Arrow">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/sport-arrow.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Sport Arrow
-                  </h5>
-                  <p>
-                    Designed for precision and balance, our sport arrows are ideal for training and competitive traditional archery. Crafted to pair perfectly with Mongolian bows, they offer consistent flight, durability, and reliable accuracy for every shot.
-                  </p>
-                  <div class="options">
-                  <h6>
-                  </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
+          <article class="card" data-category="accessories">
+            <div class="card-media">Image</div>
+            <h3 class="card-title">Sport Accessories</h3>
+            <p class="card-meta">Gloves, arm guards, quivers, and more.</p>
+            <div class="card-row">
+              <span class="price">₮ —</span>
+              <a class="btn btn-small" href="shop.html">Details</a>
             </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all Bow">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/sport-bow.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Sport Bow
-                  </h5>
-                  <p>
-                    Made with durable fiberglass, this sport bow offers strength, flexibility, and consistent performance. Ideal for training and competition, it provides a smooth draw and reliable power for traditional archery.
-                  </p>
-                  <div class="options">
-                    <h6>
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
+          </article>
+
+          <article class="card" data-category="outfit">
+            <div class="card-media">Image</div>
+            <h3 class="card-title">Traditional Outfit</h3>
+            <p class="card-meta">Competition-ready traditional clothing.</p>
+            <div class="card-row">
+              <span class="price">₮ —</span>
+              <a class="btn btn-small" href="shop.html">Details</a>
             </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all Arrow">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/fire-arrow.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Fire Arrow
-                  </h5>
-                  <p>
-                    A traditional display arrow featuring dual fire points, inspired by historical Mongolian warfare and ceremonial use. Designed for visual impact and cultural demonstrations, this arrow represents the power and symbolism of ancient battlefield archery.
-                  </p>
-                  <div class="options">
-                    <h6>
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
+          </article>
+
+          <article class="card" data-category="bow">
+            <div class="card-media">Image</div>
+            <h3 class="card-title">Traditional Bow</h3>
+            <p class="card-meta">Handcrafted bow inspired by historic forms.</p>
+            <div class="card-row">
+              <span class="price">₮ —</span>
+              <a class="btn btn-small" href="shop.html">Details</a>
             </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all Accessories">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f4.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Sport Accessories
-                  </h5>
-                  <p>
-                    Essential archery accessories every Mongolian archer needs. From finger protection and arm guards to quivers and maintenance tools, our accessories support comfort, safety, and performance in both training and competition.
-                  </p>
-                  <div class="options">
-                    <h6>
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all Outfit">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f5.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Traditional Outfit
-                  </h5>
-                  <p>
-                    Authentic traditional clothing, including the Mongolian deel, suitable for archery training, festivals, and competitions. Designed for comfort, mobility, and cultural pride while preserving traditional style.
-                  </p>
-                  <div class="options">
-                    <h6>
-                      Size: M,L,XL
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all Arrow">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/shamanism-arrow.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Shamanism Arrow
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all Bow">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/traditional-bow.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Traditional Bow
-                  </h5>
-                  <p>
-                    Handcrafted in the Mongolian tradition, this bow combines heritage design with balanced performance. Built for traditional archery, competitions, and cultural practice, it delivers smooth draw, power, and authentic shooting feel.
-                  </p>
-                  <div class="options">
-                    <h6>
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all Bow">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f8.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Training Bow
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6 col-lg-4 all Accessories">
-            <div class="box">
-              <div>
-                <div class="img-box">
-                  <img src="images/f9.png" alt="">
-                </div>
-                <div class="detail-box">
-                  <h5>
-                    Shamanism Accessories
-                  </h5>
-                  <p>
-                    Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
-                  </p>
-                  <div class="options">
-                    <h6>
-                    </h6>
-                    <a href="">
-                      <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
-                        <g>
-                          <g>
-                            <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
-                         c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
-                         C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
-                         c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
-                         C457.728,97.71,450.56,86.958,439.296,84.91z" />
-                          </g>
-                        </g>
-                        <g>
-                          <g>
-                            <path d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
-                         c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
-                          </g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                        <g>
-                        </g>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </article>
         </div>
       </div>
-      <div class="btn-box">
-        <a href="">
-          View More
-        </a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- end food section -->
-
-  <!-- about section -->
-
-  <section class="about_section layout_padding">
-    <div class="container  ">
-
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="img-box">
-            <img src="images/about-img.png" alt="">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="detail-box">
-            <div class="heading_container">
-              <h2>
-                Archery in Mongolia
-              </h2>
-            </div>
-            <p>
-              Archery has a rich history in Mongolia, dating back centuries. It was not only a means of hunting but also a crucial skill for warfare and survival in the vast steppes. Mongolian archers were renowned for their precision and strength, using composite bows that were both powerful and portable.
-            </p>
-            <a href="">
-              Read More
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end about section -->
-
-  <!-- book section -->
-  <section class="book_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Ask for training or book a guide
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
-              </div>
-              <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>
-                    How many persons?
-                  </option>
-                  <option value="">
-                    Me only
-                  </option>
-                  <option value="">
-                    With my family
-                  </option>
-                  <option value="">
-                    With my friends
-                  </option>
-                  <option value="">
-                    More than 50 people
-                  </option>
-                </select>
-              </div>
-              <div>
-                <input type="date" class="form-control">
-              </div>
-              <div class="btn_box">
-                <button>
-                  Book Now
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- end book section -->
-
-  <!-- client section -->
-
-  <section class="client_section layout_padding-bottom">
-    <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
-        <h2>
-          What You Can Ask From Us
-        </h2>
-      </div>
-      <div class="carousel-wrap row ">
-        <div class="owl-carousel client_owl-carousel">
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>
-                  How to locate the best archery spots in Mongolia and get there safely.
-                </p>
-                <h6>
-                  Answer is simple : 
-                </h6>
-                <p>
-                  Mongolia is eternal landscape of steppes, deserts and mountains.
-                </p>
-              </div>
-              <div class="img-box">
-                <img src="images/client1.jpg" alt="" class="box-img">
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="box">
-              <div class="detail-box">
-                <p>
-                  How do i become an archer?
-                </p>
-                <h6>
-                  We were to be an archer
-                </h6>
-                <p>
-                  We will teach you how to build a bow, how to shoot arrows, and how to practice archery safely and effectively.
-                </p>
-              </div>
-              <div class="img-box">
-                <img src="images/client2.jpg" alt="" class="box-img">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- end client section -->
-
-  <!-- footer section -->
-  <footer class="footer_section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 footer-col">
-          <div class="footer_contact">
-            <h4>
-              Contact Us
-            </h4>
-            <div class="contact_link_box">
-              <a href="">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <span>
-                  Location
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  Call +976 99085393
-                </span>
-              </a>
-              <a href="">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span>
-                  archerybuma@gmail.com
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 footer-col">
-          <div class="footer_detail">
-            <a href="" class="footer-logo">
-              Mongolian Archery
-            </a>
-            <p>
-              Experience the thrill of archery in Mongolia with our expert guides and top-quality equipment. Whether you're a beginner or an experienced archer, we have something for everyone.
-            </p>
-            <div class="footer_social">
-              <a href="">
-                <i class="fa fa-facebook" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-linkedin" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-instagram" aria-hidden="true"></i>
-              </a>
-              <a href="">
-                <i class="fa fa-pinterest" aria-hidden="true"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 footer-col">
-          <h4>
-            Opening Hours
-          </h4>
+    <!-- Story / Intro -->
+    <section id="story" class="section section-muted">
+      <div class="container story">
+        <div class="story-text">
+          <h2 class="section-title">Mongolian Archery</h2>
           <p>
-            Every weekdays
+            Archery has a rich history in Mongolia. It is one of the “Three Manly Sports” and
+            remains part of festivals and competitions today.
           </p>
-          <p>
-            10.00 Am -6.00 Pm
-          </p>
+          <a class="btn btn-secondary" href="about.html">Read More</a>
+        </div>
+
+        <div class="story-media">
+          <div class="story-image-placeholder">Story Image</div>
         </div>
       </div>
-      <div class="footer-info">
-        <p>
-          &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://mongolianarchery.com/">Mongolain Archery</a><br><br>
-        </p>
+    </section>
+
+    <!-- Booking (front-end only) -->
+    <section id="booking" class="section">
+      <div class="container">
+        <h2 class="section-title">Book Training / Ask a Guide</h2>
+
+        <form class="form" id="bookingForm">
+          <div class="form-row">
+            <label>
+              Name
+              <input name="name" type="text" required />
+            </label>
+
+            <label>
+              Phone
+              <input name="phone" type="tel" required />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              Email
+              <input name="email" type="email" />
+            </label>
+
+            <label>
+              Date
+              <input name="date" type="date" />
+            </label>
+          </div>
+
+          <label>
+            Message
+            <textarea name="message" rows="4" placeholder="Tell us what you want to book or ask..."></textarea>
+          </label>
+
+          <button class="btn btn-primary" type="submit">Send Request</button>
+          <p class="form-hint" id="formHint"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-title">Mongolian Archery</div>
+        <p class="footer-text">Handcrafted traditional bows and archery equipment.</p>
+      </div>
+
+      <div>
+        <div class="footer-title">Contact</div>
+        <p class="footer-text">Phone: +976 …</p>
+        <p class="footer-text">Email: …</p>
+      </div>
+
+      <div>
+        <div class="footer-title">Hours</div>
+        <p class="footer-text">Mon–Sun: 09:00–20:00</p>
       </div>
     </div>
   </footer>
-  <!-- footer section -->
 
-  <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- popper js -->
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- owl slider -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
-  </script>
-  <!-- isotope js -->
-  <script src="https://unpkg.com/isotope-layout@3.0.4/dist/isotope.pkgd.min.js"></script>
-  <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js"></script>
-  <!-- custom js -->
-  <script src="js/custom.js"></script>
-  <!-- Google Map -->
-  <script src="https://maps.app.goo.gl/dnWTDerR3A95AJ9G6">
-  </script>
-  <!-- End Google Map -->
-
+  <!-- Your JS -->
+  <script src="js/main.js"></script>
 </body>
 </html>
