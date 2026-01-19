@@ -32,6 +32,33 @@ html[data-theme="dark"] {
   --shadow: 0 14px 38px rgba(0, 0, 0, 0.35);
 }
 
+/* Smooth theme transitions */
+html {
+  transition:
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+body,
+.site-header,
+.section-muted,
+.card,
+input,
+textarea,
+.btn,
+.theme-toggle {
+  transition:
+    background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+/* Prevent weird animation on page load */
+html.no-theme-transition * {
+  transition: none !important;
+}
+
 * {
   box-sizing: border-box;
 }

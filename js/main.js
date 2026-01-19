@@ -27,7 +27,15 @@ function getInitialTheme() {
 }
 
 const initialTheme = getInitialTheme();
+
+// Disable transitions during initial load
+document.documentElement.classList.add("no-theme-transition");
 applyTheme(initialTheme);
+
+// Re-enable transitions after theme is applied
+requestAnimationFrame(() => {
+  document.documentElement.classList.remove("no-theme-transition");
+});
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
