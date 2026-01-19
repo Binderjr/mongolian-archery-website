@@ -1,230 +1,317 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mongolian Archery Shop</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mongolian Archery Shop</title>
 
-  <!-- Your CSS -->
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
-</head>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-<body>
-  <!-- Header / Nav -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html">Mongolian Archery</a>
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
 
-      <nav class="nav">
-        <a href="index.html" class="nav-link is-active">Home</a>
-        <a href="shop.html" class="nav-link">Shop</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="schedule.html" class="nav-link">Schedule</a>
-      </nav>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
-        <span class="theme-toggle-track">
-          <span class="theme-toggle-thumb" aria-hidden="true"></span>
-        </span>
-        <span class="theme-toggle-text" id="themeToggleText">Light</span>
-      </button>
+  <body>
+    <!-- Header / Nav -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html">Mongolian Archery</a>
 
-      <a class="nav-cta" href="#booking">Book Training</a>
-    </div>
-  </header>
+        <nav class="nav">
+          <a href="index.html" class="nav-link is-active">Home</a>
+          <a href="shop.html" class="nav-link">Shop</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="schedule.html" class="nav-link">Schedule</a>
+        </nav>
+        <button
+          class="theme-toggle"
+          id="themeToggle"
+          type="button"
+          aria-label="Toggle dark mode"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle-track">
+            <span class="theme-toggle-thumb" aria-hidden="true"></span>
+          </span>
+          <span class="theme-toggle-text" id="themeToggleText">Light</span>
+        </button>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
+        <a class="nav-cta" href="#booking">Book Training</a>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero hero-big">
+        <div class="hero-bg">
+          <img
+            class="hero-bg-img"
+            src="images/hero-bg.png"
+            alt="Mongolian traditional archery"
+          />
+          <div class="hero-overlay"></div>
+        </div>
+
+        <div class="container hero-big-inner">
+          <div class="hero-badge">
+            <span class="dot"></span>
+            Handcrafted in Mongolia
+          </div>
+
           <p class="hero-kicker">Traditional Bow & Arrow</p>
           <h1 class="hero-title">Mongolian Traditional Archery</h1>
           <p class="hero-subtitle">
-            Handcrafted bows, arrows, and accessories—built for tradition, sport, and performance.
+            Handcrafted bows, arrows, and accessories built for tradition,
+            sport, and performance.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="shop.html">Explore Shop</a>
-            <a class="btn btn-secondary" href="#story">Learn Mongolian Archery</a>
+            <a class="btn btn-secondary" href="#story"
+              >Learn Mongolian Archery</a
+            >
+          </div>
+
+          <a class="scroll-cue" href="#browse" aria-label="Scroll down">
+            <span class="scroll-mouse" aria-hidden="true"></span>
+            <span class="scroll-text">Scroll</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Category Filter (UI only for now) -->
+      <section class="section" id="browse">
+        <div class="container">
+          <h2 class="section-title">Browse by Category</h2>
+
+          <div
+            class="category-bar"
+            role="tablist"
+            aria-label="Product categories"
+          >
+            <button class="chip is-active" data-category="all">All</button>
+            <button class="chip" data-category="bow">Bow</button>
+            <button class="chip" data-category="arrow">Arrow</button>
+            <button class="chip" data-category="accessories">
+              Accessories
+            </button>
+            <button class="chip" data-category="outfit">Outfit</button>
           </div>
         </div>
+      </section>
 
-        <div class="hero-media" aria-label="Hero image placeholder">
-          <div class="hero-image-placeholder">Hero Image</div>
+      <!-- Product Grid -->
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <h2 class="section-title">Our Builds</h2>
+            <a class="text-link" href="shop.html">View all products</a>
+          </div>
+
+          <div id="productGrid" class="grid">
+            <!-- Temporary cards (we will make these dynamic next) -->
+            <article class="card" data-category="arrow">
+              <div class="card-media">
+                <img
+                  class="card-image"
+                  src="images/sport-arrow.png"
+                  alt="Sport Arrow"
+                />
+              </div>
+              <h3 class="card-title">Sport Arrow</h3>
+              <p class="card-meta">
+                Durable arrows for training and competition.
+              </p>
+              <div class="card-row">
+                <span class="price">₮ —</span>
+                <a class="btn btn-small" href="shop.html">Details</a>
+              </div>
+            </article>
+
+            <article class="card" data-category="bow">
+              <div class="card-media">
+                <img
+                  class="card-image"
+                  src="images/sport-bow.png"
+                  alt="Sport Bow (Fiberglass)"
+                />
+              </div>
+              <h3 class="card-title">Sport Bow (Fiberglass)</h3>
+              <p class="card-meta">
+                Reliable fiberglass bow for sport shooting.
+              </p>
+              <div class="card-row">
+                <span class="price">₮ —</span>
+                <a class="btn btn-small" href="shop.html">Details</a>
+              </div>
+            </article>
+
+            <article class="card" data-category="arrow">
+              <div class="card-media">
+                <img
+                  class="card-image"
+                  src="images/fire-arrow.png"
+                  alt="Fire Arrow"
+                />
+              </div>
+              <h3 class="card-title">Fire Arrow</h3>
+              <p class="card-meta">
+                Demonstration arrow designed for fire use.
+              </p>
+              <div class="card-row">
+                <span class="price">₮ —</span>
+                <a class="btn btn-small" href="shop.html">Details</a>
+              </div>
+            </article>
+
+            <article class="card" data-category="accessories">
+              <div class="card-media">
+                <img
+                  class="card-image"
+                  src="images/accessories.png"
+                  alt="Sport Accessories"
+                />
+              </div>
+              <h3 class="card-title">Sport Accessories</h3>
+              <p class="card-meta">Gloves, arm guards, quivers, and more.</p>
+              <div class="card-row">
+                <span class="price">₮ —</span>
+                <a class="btn btn-small" href="shop.html">Details</a>
+              </div>
+            </article>
+
+            <article class="card" data-category="outfit">
+              <div class="card-media">
+                <img
+                  class="card-image"
+                  src="images/outfit.png"
+                  alt="Traditional Outfit"
+                />
+              </div>
+              <h3 class="card-title">Traditional Outfit</h3>
+              <p class="card-meta">Competition-ready traditional clothing.</p>
+              <div class="card-row">
+                <span class="price">₮ —</span>
+                <a class="btn btn-small" href="shop.html">Details</a>
+              </div>
+            </article>
+
+            <article class="card" data-category="bow">
+              <div class="card-media">
+                <img
+                  class="card-image"
+                  src="images/traditional-bow.png"
+                  alt="Traditional Bow"
+                />
+              </div>
+              <h3 class="card-title">Traditional Bow</h3>
+              <p class="card-meta">
+                Handcrafted bow inspired by historic forms.
+              </p>
+              <div class="card-row">
+                <span class="price">₮ —</span>
+                <a class="btn btn-small" href="shop.html">Details</a>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Category Filter (UI only for now) -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Browse by Category</h2>
+      <!-- Story / Intro -->
+      <section id="story" class="section section-muted">
+        <div class="container story">
+          <div class="story-text">
+            <h2 class="section-title">Mongolian Archery</h2>
+            <p>
+              Archery has a rich history in Mongolia. It is one of the “Three
+              Manly Sports” and remains part of festivals and competitions
+              today.
+            </p>
+            <a class="btn btn-secondary" href="about.html">Read More</a>
+          </div>
 
-        <div class="category-bar" role="tablist" aria-label="Product categories">
-          <button class="chip is-active" data-category="all">All</button>
-          <button class="chip" data-category="bow">Bow</button>
-          <button class="chip" data-category="arrow">Arrow</button>
-          <button class="chip" data-category="accessories">Accessories</button>
-          <button class="chip" data-category="outfit">Outfit</button>
+          <div class="story-media">
+            <div class="story-image-placeholder">Story Image</div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Product Grid -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Our Builds</h2>
-          <a class="text-link" href="shop.html">View all products</a>
+      <!-- Booking (front-end only) -->
+      <section id="booking" class="section">
+        <div class="container">
+          <h2 class="section-title">Book Training / Ask a Guide</h2>
+
+          <form class="form" id="bookingForm">
+            <div class="form-row">
+              <label>
+                Name
+                <input name="name" type="text" required />
+              </label>
+
+              <label>
+                Phone
+                <input name="phone" type="tel" required />
+              </label>
+            </div>
+
+            <div class="form-row">
+              <label>
+                Email
+                <input name="email" type="email" />
+              </label>
+
+              <label>
+                Date
+                <input name="date" type="date" />
+              </label>
+            </div>
+
+            <label>
+              Message
+              <textarea
+                name="message"
+                rows="4"
+                placeholder="Tell us what you want to book or ask..."
+              ></textarea>
+            </label>
+
+            <button class="btn btn-primary" type="submit">Send Request</button>
+            <p class="form-hint" id="formHint"></p>
+          </form>
         </div>
+      </section>
+    </main>
 
-        <div id="productGrid" class="grid">
-          <!-- Temporary cards (we will make these dynamic next) -->
-          <article class="card" data-category="arrow">
-            <div class="card-media">Image</div>
-            <h3 class="card-title">Sport Arrow</h3>
-            <p class="card-meta">Durable arrows for training and competition.</p>
-            <div class="card-row">
-              <span class="price">₮ —</span>
-              <a class="btn btn-small" href="shop.html">Details</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="bow">
-            <div class="card-media">Image</div>
-            <h3 class="card-title">Sport Bow (Fiberglass)</h3>
-            <p class="card-meta">Reliable fiberglass bow for sport shooting.</p>
-            <div class="card-row">
-              <span class="price">₮ —</span>
-              <a class="btn btn-small" href="shop.html">Details</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="arrow">
-            <div class="card-media">Image</div>
-            <h3 class="card-title">Fire Arrow</h3>
-            <p class="card-meta">Demonstration arrow designed for fire use.</p>
-            <div class="card-row">
-              <span class="price">₮ —</span>
-              <a class="btn btn-small" href="shop.html">Details</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="accessories">
-            <div class="card-media">Image</div>
-            <h3 class="card-title">Sport Accessories</h3>
-            <p class="card-meta">Gloves, arm guards, quivers, and more.</p>
-            <div class="card-row">
-              <span class="price">₮ —</span>
-              <a class="btn btn-small" href="shop.html">Details</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="outfit">
-            <div class="card-media">Image</div>
-            <h3 class="card-title">Traditional Outfit</h3>
-            <p class="card-meta">Competition-ready traditional clothing.</p>
-            <div class="card-row">
-              <span class="price">₮ —</span>
-              <a class="btn btn-small" href="shop.html">Details</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="bow">
-            <div class="card-media">Image</div>
-            <h3 class="card-title">Traditional Bow</h3>
-            <p class="card-meta">Handcrafted bow inspired by historic forms.</p>
-            <div class="card-row">
-              <span class="price">₮ —</span>
-              <a class="btn btn-small" href="shop.html">Details</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Story / Intro -->
-    <section id="story" class="section section-muted">
-      <div class="container story">
-        <div class="story-text">
-          <h2 class="section-title">Mongolian Archery</h2>
-          <p>
-            Archery has a rich history in Mongolia. It is one of the “Three Manly Sports” and
-            remains part of festivals and competitions today.
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <div class="footer-title">Mongolian Archery</div>
+          <p class="footer-text">
+            Handcrafted traditional bows and archery equipment.
           </p>
-          <a class="btn btn-secondary" href="about.html">Read More</a>
         </div>
 
-        <div class="story-media">
-          <div class="story-image-placeholder">Story Image</div>
+        <div>
+          <div class="footer-title">Contact</div>
+          <p class="footer-text">Phone: +976 …</p>
+          <p class="footer-text">Email: …</p>
+        </div>
+
+        <div>
+          <div class="footer-title">Hours</div>
+          <p class="footer-text">Mon–Sun: 09:00–20:00</p>
         </div>
       </div>
-    </section>
+    </footer>
 
-    <!-- Booking (front-end only) -->
-    <section id="booking" class="section">
-      <div class="container">
-        <h2 class="section-title">Book Training / Ask a Guide</h2>
-
-        <form class="form" id="bookingForm">
-          <div class="form-row">
-            <label>
-              Name
-              <input name="name" type="text" required />
-            </label>
-
-            <label>
-              Phone
-              <input name="phone" type="tel" required />
-            </label>
-          </div>
-
-          <div class="form-row">
-            <label>
-              Email
-              <input name="email" type="email" />
-            </label>
-
-            <label>
-              Date
-              <input name="date" type="date" />
-            </label>
-          </div>
-
-          <label>
-            Message
-            <textarea name="message" rows="4" placeholder="Tell us what you want to book or ask..."></textarea>
-          </label>
-
-          <button class="btn btn-primary" type="submit">Send Request</button>
-          <p class="form-hint" id="formHint"></p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <div class="footer-title">Mongolian Archery</div>
-        <p class="footer-text">Handcrafted traditional bows and archery equipment.</p>
-      </div>
-
-      <div>
-        <div class="footer-title">Contact</div>
-        <p class="footer-text">Phone: +976 …</p>
-        <p class="footer-text">Email: …</p>
-      </div>
-
-      <div>
-        <div class="footer-title">Hours</div>
-        <p class="footer-text">Mon–Sun: 09:00–20:00</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Your JS -->
-  <script src="js/main.js"></script>
-</body>
+    <!-- Your JS -->
+    <script src="js/main.js"></script>
+  </body>
 </html>

@@ -8,15 +8,21 @@ function applyTheme(theme) {
   if (themeToggle) {
     const isDark = theme === "dark";
     themeToggle.setAttribute("aria-pressed", String(isDark));
-    themeToggle.setAttribute("aria-label", isDark ? "Toggle light mode" : "Toggle dark mode");
-    if (themeToggleText) themeToggleText.textContent = isDark ? "Dark" : "Light";
+    themeToggle.setAttribute(
+      "aria-label",
+      isDark ? "Toggle light mode" : "Toggle dark mode",
+    );
+    if (themeToggleText)
+      themeToggleText.textContent = isDark ? "Dark" : "Light";
   }
 }
 
 function getInitialTheme() {
   const saved = localStorage.getItem(THEME_KEY);
   if (saved === "light" || saved === "dark") return saved;
-  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const prefersDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
   return prefersDark ? "dark" : "light";
 }
 
@@ -25,32 +31,90 @@ applyTheme(initialTheme);
 
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
-    const current = document.documentElement.getAttribute("data-theme") || "light";
+    const current =
+      document.documentElement.getAttribute("data-theme") || "light";
     const next = current === "dark" ? "light" : "dark";
     localStorage.setItem(THEME_KEY, next);
     applyTheme(next);
   });
 }
 
+// Smooth filtering with FLIP animation
+function filterGridWithAnimation(gridEl, category) {
+  const cards = Array.from(gridEl.querySelectorAll(".card"));
 
-// Category filtering (front-end only)
-const chips = document.querySelectorAll(".chip");
-const cards = document.querySelectorAll("#productGrid .card");
+  // 1) Record first positions (FLIP)
+  const first = new Map();
+  cards.forEach((c) => {
+    if (c.style.display !== "none") first.set(c, c.getBoundingClientRect());
+  });
 
-chips.forEach((chip) => {
-  chip.addEventListener("click", () => {
-    chips.forEach((c) => c.classList.remove("is-active"));
-    chip.classList.add("is-active");
+  // 2) Decide which cards should be visible
+  const shouldShow = (card) => {
+    const cardCategory = card.dataset.category;
+    return category === "all" || category === cardCategory;
+  };
 
-    const category = chip.dataset.category;
+  // 3) Hide cards with fade, then display:none after animation
+  cards.forEach((card) => {
+    if (!shouldShow(card) && card.style.display !== "none") {
+      card.classList.add("is-hiding");
+      window.setTimeout(() => {
+        card.style.display = "none";
+        card.classList.remove("is-hiding");
+      }, 180);
+    }
+  });
 
-    cards.forEach((card) => {
-      const cardCategory = card.dataset.category;
-      const show = category === "all" || category === cardCategory;
-      card.style.display = show ? "" : "none";
+  // 4) Show cards immediately (for layout), but start transparent for fade-in
+  cards.forEach((card) => {
+    if (shouldShow(card) && card.style.display === "none") {
+      card.style.display = "";
+      card.style.opacity = "0";
+      card.style.transform = "scale(0.98)";
+      // next frame -> animate in
+      requestAnimationFrame(() => {
+        card.style.opacity = "";
+        card.style.transform = "";
+      });
+    }
+  });
+
+  // 5) After layout settles, do FLIP slide for remaining cards
+  requestAnimationFrame(() => {
+    const visible = cards.filter((c) => c.style.display !== "none");
+    visible.forEach((card) => {
+      const last = card.getBoundingClientRect();
+      const firstRect = first.get(card);
+      if (!firstRect) return;
+
+      const dx = firstRect.left - last.left;
+      const dy = firstRect.top - last.top;
+
+      if (dx || dy) {
+        card.style.transition = "none";
+        card.style.transform = `translate(${dx}px, ${dy}px)`;
+        card.getBoundingClientRect(); // force reflow
+        card.style.transition = "";
+        card.style.transform = "";
+      }
     });
   });
-});
+}
+
+// Category filtering (front-end only)
+const homeGrid = document.getElementById("productGrid");
+const chips = document.querySelectorAll(".chip");
+
+if (homeGrid && chips.length) {
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      chips.forEach((c) => c.classList.remove("is-active"));
+      chip.classList.add("is-active");
+      filterGridWithAnimation(homeGrid, chip.dataset.category);
+    });
+  });
+}
 
 // Booking form (front-end only)
 const bookingForm = document.getElementById("bookingForm");
